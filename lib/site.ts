@@ -186,7 +186,7 @@ export const alumniGallery: Alumnus[] = [
   { src: wix("f30e51_1bee1131ce6d4a6b9a585d4ecb653575~mv2.webp"), name: "Bo Melton", credential: "NFL", w: 768, h: 768 },
   { src: wix("f30e51_d116bdcda91a4731ae55fbbb2ce2c3b5~mv2.jpg"), name: "Nick Williams", credential: "NFL", w: 2802, h: 3986 },
   { src: wix("f30e51_8ddcd77633cd401d9a2f54671572606e~mv2.webp"), name: "Austin Johnson", credential: "NFL", w: 1440, h: 810 },
-  { src: wix("f30e51_19dcd07be446405c9ef4fc8a96530970~mv2.jpg"), name: "Allison Amadio", credential: null, w: 960, h: 1200 },
+  { src: wix("f30e51_19dcd07be446405c9ef4fc8a96530970~mv2.jpg"), name: "Allison Amadio", credential: "Rutgers Softball", w: 960, h: 1200 },
   { src: wix("f30e51_384c735e5e6845bfacee585250f62f0a~mv2.jpg"), name: "Jack Crawford", credential: "NFL", w: 1200, h: 675 },
   { src: wix("f30e51_79640a98130b44eb8e9b50c90485b095~mv2.jpg"), name: "Myron Rolle", credential: "NFL", w: 1091, h: 1200 },
   { src: wix("f30e51_8847d13d60374313bf7256a1d64c03f5~mv2.webp"), name: "Max Melton", credential: "NFL", w: 660, h: 371 },
@@ -196,7 +196,7 @@ export const alumniGallery: Alumnus[] = [
   { src: wix("f30e51_a460524f824c496da398d534a3dab027~mv2.webp"), name: "Ava Tenaglia", credential: "Lasalle Soccor", w: 1200, h: 1799 },
   { src: wix("f30e51_ca2064328e5846c19a485b8e1a810a9c~mv2.png"), name: "Kasey Bertones", credential: "Marist Basketball", w: 638, h: 844 },
   { src: wix("f30e51_66f812514a2a4665b1b886c00332d1d0~mv2.webp"), name: "Hunter Watson", credential: "Monmouth Football", w: 600, h: 800 },
-  { src: wix("f30e51_f2bcbc953938488ea7353ea066d9b7d0~mv2.png"), name: "C.J Egrie", credential: "Patriot League MVP Holy Cross", w: 1080, h: 1350 },
+  { src: wix("f30e51_f2bcbc953938488ea7353ea066d9b7d0~mv2.png"), name: "C.J. Egrie", credential: "Holy Cross Baseball · Patriot League MVP", w: 1080, h: 1350 },
   { src: wix("f30e51_e0d2460b4f3f4693a5081c2b83469844~mv2.jpg"), name: "David Dudeck", credential: "Boston College FB", w: 427, h: 612 },
   { src: wix("f30e51_6af37709b4b54ab9b4c9463a39464e82~mv2.webp"), name: "D'Hani Cobbs", credential: "Villanova FB", w: 1333, h: 2000 },
   { src: wix("f30e51_f2ded00fd5b243bd8bf19541491cb111~mv2.jpeg"), name: "John Rochford", credential: "Miami Football", w: 223, h: 226 },
@@ -428,14 +428,14 @@ export const testimonials: Testimonial[] = [
       "Being at KPM for the past 10 years has been the most beneficial investment I have ever made in myself. At KPM you are not only becoming the best athlete you can become — you are also creating a better version of yourself day in and day out. I would not have any of the records I own or the scholarships I earned without Dave and Josh by my side.",
     name: "CJ Egrie",
     image: images.cutoutEgrie,
-    credential: "Patriot League Player of the Year",
+    credential: "Holy Cross Baseball · Patriot League Player of the Year",
   },
   {
     quote:
       "Coaches Dave Klemic and Josh Holsopple have worked with me for years, and I can honestly say training at KPM has been one of the biggest attributes to my athletic success. It is truly the best place to send your young athlete to bring them to the highest level. The atmosphere is top notch, and the iron-sharpens-iron mentality pushes everyone to be their best.",
     name: "Allison Amadio",
     image: images.cutoutAmadio,
-    credential: "Holy Cross Baseball · Rutgers Softball",
+    credential: "Rutgers Softball",
   },
   {
     quote:
