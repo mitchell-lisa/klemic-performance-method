@@ -41,6 +41,9 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
+  /* Long unbreakable tokens — the contact email, URLs — otherwise set the
+     min-content width of their flex/grid track and push narrow phones wide. */
+  overflow-wrap: break-word;
 }
 
 ::selection {

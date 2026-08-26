@@ -17,9 +17,9 @@ import Reveal from "@/components/Reveal";
 
 /** Three frames of the stride — smallest and faintest at the back. */
 const flight = [
-  { width: "w-[26%]", rot: "-7deg", delay: "0s", reveal: 0, opacity: "opacity-45" },
-  { width: "w-[32%]", rot: "-12deg", delay: "0.8s", reveal: 110, opacity: "opacity-80" },
-  { width: "w-[40%]", rot: "-16deg", delay: "1.6s", reveal: 220, opacity: "opacity-100" },
+  { width: "w-[23%]", rot: "-7deg", delay: "0s", reveal: 0, opacity: "opacity-45" },
+  { width: "w-[29%]", rot: "-12deg", delay: "0.8s", reveal: 110, opacity: "opacity-80" },
+  { width: "w-[36%]", rot: "-16deg", delay: "1.6s", reveal: 220, opacity: "opacity-100" },
 ] as const;
 
 function ShoeFlight({ sizes }: { sizes: string }) {

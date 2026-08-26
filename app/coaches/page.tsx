@@ -92,7 +92,7 @@ export default function CoachesPage() {
 
       {/* ============ JOSH — records board ============ */}
       <section id="josh" className="scroll-mt-20 border-b-2 border-ink bg-panel" aria-labelledby="josh-h">
-        <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-16 [&>*]:min-w-0 sm:px-8 sm:py-24 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="order-2 lg:order-1">
             <p className="kicker">{josh.title}</p>
             <h2 id="josh-h" className="display mt-3 text-5xl sm:text-7xl">
@@ -112,7 +112,7 @@ export default function CoachesPage() {
                 { value: "1.50", label: "10-yard dash" },
                 { value: "10′11″", label: "Broad jump" },
               ].map((stat, i) => (
-                <div key={stat.label} className={`p-4 ${i > 0 ? "border-l border-ink/30" : ""}`}>
+                <div key={stat.label} className={`min-w-0 p-4 ${i > 0 ? "border-l border-ink/30" : ""}`}>
                   <dd className="display text-3xl text-sky-deep">{stat.value}</dd>
                   <dt className="folio mt-1">{stat.label}</dt>
                 </div>

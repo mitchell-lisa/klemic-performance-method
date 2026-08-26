@@ -322,10 +322,10 @@ export default function HomeHero() {
         <div
           className="absolute"
           style={{
-            right: m(-70),
-            bottom: m(-46),
-            width: m(400),
-            height: m(400),
+            right: m(-56),
+            bottom: m(140),
+            width: m(330),
+            height: m(330),
             zIndex: 4,
             filter: `drop-shadow(calc(var(--m) * -14) calc(var(--m) * 10) 0 rgba(47,167,217,0.85))`,
           }}

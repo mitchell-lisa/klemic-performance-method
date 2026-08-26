@@ -117,7 +117,7 @@ export default function SignupPage() {
       </Section>
 
       <Section className="border-t border-ink/30" id="contact">
-        <div className="grid gap-10 lg:grid-cols-2">
+        <div className="grid gap-10 [&>*]:min-w-0 lg:grid-cols-2">
           <div>
             <Kicker>Contact</Kicker>
             <h2 className="display mt-3 text-4xl sm:text-5xl">Questions? Ask a coach.</h2>

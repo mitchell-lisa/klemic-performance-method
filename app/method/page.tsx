@@ -37,7 +37,7 @@ export default function MethodPage() {
             aria-labelledby={`pillar-${pillar.number}`}
           >
             <div
-              className={`mx-auto grid w-full max-w-6xl items-center gap-8 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-2 ${
+              className={`mx-auto grid w-full max-w-6xl items-center gap-8 px-5 py-14 [&>*]:min-w-0 sm:px-8 sm:py-20 lg:grid-cols-2 ${
                 i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >

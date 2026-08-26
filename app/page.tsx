@@ -114,12 +114,12 @@ export default function HomePage() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-x-16 gap-y-0 lg:grid-cols-[1.5fr_1fr]">
+        <div className="mt-12 grid gap-x-16 gap-y-0 [&>*]:min-w-0 lg:grid-cols-[1.5fr_1fr]">
           <div className="border-t-2 border-ink">
             {programs.map((program, i) => (
               <article
                 key={program.id}
-                className="grid gap-3 border-b border-ink/25 py-8 sm:grid-cols-[1fr_auto] sm:items-start"
+                className="grid gap-3 border-b border-ink/25 py-8 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start"
                 style={{ paddingLeft: `${(i % 3) * 18}px` }}
               >
                 <div>

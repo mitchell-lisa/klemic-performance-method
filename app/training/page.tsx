@@ -251,9 +251,9 @@ export default function TrainingPage() {
                 i === 0 ? "plate-sky" : "plate-ink lg:mt-14"
               }`}
             >
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="display text-3xl sm:text-4xl">{offer.name}</h3>
-                <p className="text-right">
+              <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
+                <h3 className="display min-w-0 text-3xl sm:text-4xl">{offer.name}</h3>
+                <p className="shrink-0 text-right">
                   <span className="display block text-3xl text-sky-deep">{offer.price}</span>
                   <span className="folio">{offer.priceNote}</span>
                 </p>
