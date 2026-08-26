@@ -29,7 +29,7 @@ function ProgramSection({
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.3fr_1fr]">
         <div>
           <Kicker>{kicker}</Kicker>
-          <h2 id={`${id}-h`} className="display mt-3 text-4xl sm:text-5xl">
+          <h2 id={`${id}-h`} className="serifhead mt-3 text-4xl sm:text-6xl">
             {title}
           </h2>
           <div className="mt-6 space-y-4 leading-relaxed text-mist">{children}</div>
@@ -56,7 +56,7 @@ function AsideCard({
         <ul className="mt-4 space-y-2.5 text-sm text-ink/85">
           {items.map((item) => (
             <li key={item} className="flex items-start gap-2.5">
-              <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-sky" />
+              <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-red" />
               {item}
             </li>
           ))}
@@ -72,8 +72,8 @@ export default function TrainingPage() {
     <>
       <Section className="pb-10 sm:pb-14">
         <Kicker>Training</Kicker>
-        <h1 className="display mt-4 max-w-4xl text-5xl sm:text-6xl lg:text-7xl">
-          Every path runs through the method<span className="text-sky">.</span>
+        <h1 className="serifhead mt-4 max-w-4xl text-6xl sm:text-7xl lg:text-8xl">
+          Every path runs through the <span className="text-red">method</span>.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">
           Whether you train in the facility, one-on-one, online, or in the Young Guns
@@ -256,11 +256,11 @@ export default function TrainingPage() {
         <p>
           KPM&rsquo;s dedicated training program for SJRS student-athletes, with its own
           testing and registration. Questions about the program? Contact{" "}
-          <a href={`mailto:${site.email}`} className="text-sky-deep hover:text-ink">
+          <a href={`mailto:${site.email}`} className="text-red hover:text-ink">
             {site.email}
           </a>{" "}
           or call{" "}
-          <a href={site.phoneHref} className="text-sky-deep hover:text-ink">
+          <a href={site.phoneHref} className="text-red hover:text-ink">
             {site.phone}
           </a>
           .

@@ -15,13 +15,13 @@ export default function SignupPage() {
     <>
       <Section className="pb-10 sm:pb-14">
         <Kicker>Sign Up</Kicker>
-        <h1 className="display mt-4 max-w-4xl text-5xl sm:text-6xl lg:text-7xl">
-          Start training<span className="text-sky">.</span>
+        <h1 className="serifhead mt-4 max-w-4xl text-6xl sm:text-7xl lg:text-8xl">
+          Start <span className="text-red">training</span>.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">
           Every KPM athlete starts with objective testing. Pick your path below — if
           you&rsquo;re not sure which applies, call{" "}
-          <a href={site.phoneHref} className="text-sky-deep hover:text-ink">
+          <a href={site.phoneHref} className="text-red hover:text-ink">
             {site.phone}
           </a>{" "}
           and we&rsquo;ll sort it out in two minutes.
@@ -86,7 +86,7 @@ export default function SignupPage() {
             <h2 className="display mt-3 text-4xl sm:text-5xl">Questions? Ask a coach.</h2>
             <ul className="mt-8 space-y-4 text-lg">
               <li>
-                <a href={site.phoneHref} className="text-sky-deep hover:text-ink">
+                <a href={site.phoneHref} className="text-red hover:text-ink">
                   {site.phone}
                 </a>
                 <span className="block text-xs uppercase tracking-[0.16em] text-mist">
@@ -94,7 +94,7 @@ export default function SignupPage() {
                 </span>
               </li>
               <li>
-                <a href={site.privatePhoneHref} className="text-sky-deep hover:text-ink">
+                <a href={site.privatePhoneHref} className="text-red hover:text-ink">
                   {site.privatePhone}
                 </a>
                 <span className="block text-xs uppercase tracking-[0.16em] text-mist">
@@ -102,7 +102,7 @@ export default function SignupPage() {
                 </span>
               </li>
               <li>
-                <a href={`mailto:${site.email}`} className="text-sky-deep hover:text-ink">
+                <a href={`mailto:${site.email}`} className="text-red hover:text-ink">
                   {site.email}
                 </a>
                 <span className="block text-xs uppercase tracking-[0.16em] text-mist">
@@ -112,7 +112,7 @@ export default function SignupPage() {
             </ul>
           </div>
           <div className="self-center border border-ink/30 bg-panel p-8">
-            <p className="display text-2xl">The facility</p>
+            <p className="serifhead text-3xl">The facility</p>
             <p className="mt-3 text-mist">{site.address.label}</p>
             <p className="mt-1 text-sm text-mist">
               {site.facilitySize} · {site.sessionCapacity.toLowerCase()}

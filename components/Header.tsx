@@ -52,8 +52,8 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`font-cond text-[0.8rem] font-semibold uppercase tracking-[0.18em] transition-colors hover:text-sky-deep ${
-                pathname === item.href ? "text-sky-deep" : "text-ink"
+              className={`font-cond text-[0.8rem] font-semibold uppercase tracking-[0.18em] transition-colors hover:text-red ${
+                pathname === item.href ? "text-red" : "text-ink"
               }`}
             >
               {item.label}
@@ -63,13 +63,13 @@ export default function Header() {
             href={links.accountLogin}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-cond text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-mist transition-colors hover:text-sky-deep"
+            className="font-cond text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-mist transition-colors hover:text-red"
           >
             Sign In
           </a>
           <Link
             href="/signup"
-            className="inline-flex min-h-10 items-center bg-ink px-5 font-cond text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-paper transition-colors hover:bg-sky-deep hover:text-white"
+            className="inline-flex min-h-10 items-center bg-red px-5 font-cond text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-ink"
           >
             Sign Up
           </Link>
@@ -104,7 +104,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="display border-b border-ink/30 py-4 text-3xl hover:text-sky-deep"
+              className="display border-b border-ink/30 py-4 text-3xl hover:text-red"
             >
               {item.label}
             </Link>
@@ -113,22 +113,22 @@ export default function Header() {
             href={links.accountLogin}
             target="_blank"
             rel="noopener noreferrer"
-            className="display border-b border-ink/30 py-4 text-3xl text-mist hover:text-sky-deep"
+            className="display border-b border-ink/30 py-4 text-3xl text-mist hover:text-red"
           >
             Account Sign In
           </a>
           <Link
             href="/signup"
             onClick={() => setOpen(false)}
-            className="mt-6 inline-flex min-h-13 items-center justify-center bg-ink px-6 font-cond text-base font-semibold uppercase tracking-[0.16em] text-paper"
+            className="mt-6 inline-flex min-h-13 items-center justify-center bg-red px-6 font-cond text-base font-semibold uppercase tracking-[0.16em] text-white"
           >
             Sign Up
           </Link>
           <div className="mt-8 text-sm text-mist">
-            <a href={site.phoneHref} className="block py-1 hover:text-sky-deep">
+            <a href={site.phoneHref} className="block py-1 hover:text-red">
               {site.phone}
             </a>
-            <a href={`mailto:${site.email}`} className="block py-1 hover:text-sky-deep">
+            <a href={`mailto:${site.email}`} className="block py-1 hover:text-red">
               {site.email}
             </a>
             <p className="py-1">{site.address.label}</p>

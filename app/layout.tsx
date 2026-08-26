@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Inter, Oswald } from "next/font/google";
+import { Archivo_Black, Instrument_Serif, Inter, Oswald } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { images, site } from "@/lib/site";
@@ -9,6 +9,14 @@ const archivo = Archivo_Black({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-archivo",
+  display: "swap",
+});
+
+const instrument = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument",
   display: "swap",
 });
 
@@ -74,7 +82,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${archivo.variable} ${oswald.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${archivo.variable} ${instrument.variable} ${oswald.variable} ${inter.variable}`}
+    >
       <body>
         <script
           type="application/ld+json"
@@ -82,7 +93,7 @@ export default function RootLayout({
         />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-sky focus:px-4 focus:py-2 focus:text-ink"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[95] focus:bg-red focus:px-4 focus:py-2 focus:text-white"
         >
           Skip to content
         </a>

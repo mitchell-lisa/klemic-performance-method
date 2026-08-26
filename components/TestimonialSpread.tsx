@@ -5,34 +5,40 @@ import Image from "next/image";
 import { testimonials } from "@/lib/site";
 
 /**
- * Magazine-spread testimonials: a grid of partially cropped cutout
- * portraits (faces peeking over the frame, caps-spread style).
- * Clicking a portrait "pops" the athlete out of the frame and expands
- * the full quote beneath the grid.
+ * Editorial athlete index — a contact sheet of cutout portraits.
+ * Initially you see the athletes with minimal information; selecting one
+ * pops it forward, recedes the others, and reveals the full testimonial
+ * as a serif pull-quote beneath the sheet.
  */
 export default function TestimonialSpread() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const open = openIndex === null ? null : testimonials[openIndex];
+  const anyOpen = openIndex !== null;
 
   return (
     <div>
-      <ul className="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-6">
+      <ul className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-6">
         {testimonials.map((t, i) => {
           const isOpen = openIndex === i;
+          const receded = anyOpen && !isOpen;
           return (
-            <li key={t.name}>
+            <li key={t.name} className={isOpen ? "relative z-10" : ""}>
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? null : i)}
                 aria-expanded={isOpen}
                 aria-controls="testimonial-quote"
-                className="group block w-full text-left"
+                className={`group block w-full text-left transition-all duration-300 ${
+                  receded ? "opacity-40 saturate-0" : ""
+                } ${isOpen ? "-translate-y-2 sm:scale-[1.06]" : "hover:-translate-y-1"}`}
               >
-                {/* Portrait window — subject cropped by the frame until opened */}
+                {/* Portrait sheet cell — figure cropped by the frame until opened */}
                 <span
-                  className={`halftone relative block aspect-[5/6] w-full overflow-hidden border-b-4 bg-white transition-colors ${
-                    isOpen ? "border-sky" : "border-ink/20 group-hover:border-sky/60"
+                  className={`halftone relative block aspect-[5/6] w-full overflow-hidden bg-white transition-shadow ${
+                    isOpen
+                      ? "border border-ink shadow-[6px_6px_0_rgba(194,42,28,0.9)]"
+                      : "border border-ink/40"
                   }`}
                 >
                   {t.image ? (
@@ -44,21 +50,24 @@ export default function TestimonialSpread() {
                       className={`transition-all duration-300 ${
                         isOpen
                           ? "scale-100 object-contain object-bottom"
-                          : "origin-top scale-[1.6] object-contain object-top group-hover:scale-[1.5]"
+                          : "origin-top scale-[1.6] object-contain object-top"
                       }`}
                     />
                   ) : null}
+                  <span className="folio absolute left-2 top-2 bg-paper/90 px-1.5 py-0.5">
+                    Fig. 0{i + 1}
+                  </span>
                 </span>
-                {/* Caps-spread caption */}
+                {/* Contact-sheet caption */}
                 <span className="mt-3 block text-[0.8rem] leading-snug">
                   <span className="font-display uppercase tracking-wide">{t.name}</span>
                   <span className="text-mist"> — {t.credential}.</span>
                   <span
-                    className={`mt-1 block font-cond text-[0.65rem] font-semibold uppercase tracking-[0.2em] ${
-                      isOpen ? "text-sky-deep" : "text-mist/70"
+                    className={`annotation mt-1 block text-[0.85rem] ${
+                      isOpen ? "text-red" : ""
                     }`}
                   >
-                    {isOpen ? "▲ Close" : "▼ Read their words"}
+                    {isOpen ? "close ↑" : "read their words →"}
                   </span>
                 </span>
               </button>
@@ -67,25 +76,29 @@ export default function TestimonialSpread() {
         })}
       </ul>
 
-      {/* Expanded quote */}
+      {/* Expanded quote — serif pull-quote between heavy rules */}
       <div id="testimonial-quote" role="region" aria-live="polite">
         {open ? (
-          <figure className="mt-10 border-y-2 border-ink py-8 sm:py-10">
-            <blockquote className="max-w-4xl font-display text-xl leading-[1.25] sm:text-2xl lg:text-[1.7rem]">
-              <span aria-hidden="true" className="text-sky">
+          <figure className="mt-12 border-y-2 border-ink py-8 sm:py-12">
+            <blockquote className="serifhead max-w-4xl text-2xl leading-[1.12] sm:text-3xl lg:text-4xl">
+              <span aria-hidden="true" className="text-red">
                 &ldquo;
               </span>
               {open.quote}
-              <span aria-hidden="true" className="text-sky">
+              <span aria-hidden="true" className="text-red">
                 &rdquo;
               </span>
             </blockquote>
             <figcaption className="mt-6 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-              <span className="display text-xl text-sky-deep">{open.name}</span>
+              <span className="display text-xl text-red">{open.name}</span>
               <span className="folio">{open.credential}</span>
             </figcaption>
           </figure>
-        ) : null}
+        ) : (
+          <p className="annotation mt-10">
+            ↑ Select an athlete from the sheet to read their words.
+          </p>
+        )}
       </div>
     </div>
   );

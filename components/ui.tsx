@@ -13,10 +13,10 @@ const base =
   "inline-flex items-center justify-center gap-2 font-cond uppercase tracking-[0.14em] text-sm font-semibold transition-colors duration-200 min-h-12 px-7";
 
 const variants = {
-  solid: "bg-ink text-paper hover:bg-sky-deep hover:text-white",
+  solid: "bg-ink text-paper hover:bg-red hover:text-white",
   outline:
-    "border-2 border-ink text-ink hover:border-sky-deep hover:text-sky-deep",
-  ghost: "text-ink hover:text-sky-deep underline-offset-4 hover:underline px-0",
+    "border-2 border-ink text-ink hover:border-red hover:text-red",
+  ghost: "text-ink hover:text-red underline-offset-4 hover:underline px-0",
 };
 
 export function Cta({
@@ -66,7 +66,7 @@ export function SectionHeading({
   return (
     <div className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}>
       <Kicker>{kicker}</Kicker>
-      <h2 className="display mt-4 text-4xl sm:text-5xl lg:text-6xl">{title}</h2>
+      <h2 className="serifhead mt-4 text-5xl sm:text-6xl lg:text-7xl">{title}</h2>
       {intro ? (
         <p className="mt-5 text-base sm:text-lg leading-relaxed text-mist">{intro}</p>
       ) : null}
