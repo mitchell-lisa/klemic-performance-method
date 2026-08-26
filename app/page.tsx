@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { images, pillars, programs, site, stats } from "@/lib/site";
+import { alumniGallery, images, pillars, programs, site, stats } from "@/lib/site";
 import { ArrowIcon, Cta, Section } from "@/components/ui";
 import {
   CoachesPreview,
@@ -13,6 +13,11 @@ import {
 import Reveal from "@/components/Reveal";
 import TestimonialSpread from "@/components/TestimonialSpread";
 import HomeHero from "@/components/HomeHero";
+import FacilityFilm from "@/components/features/FacilityFilm";
+import VincePapale from "@/components/features/VincePapale";
+import NavySprint from "@/components/features/NavySprint";
+import AntepesInsert from "@/components/features/AntepesInsert";
+import SpeedsterInsert from "@/components/features/SpeedsterInsert";
 
 export default function HomePage() {
   return (
@@ -28,6 +33,9 @@ export default function HomePage() {
       <HomeHero />
 
       <StatStrip items={stats} />
+
+      {/* ============ THE FLOOR, ON FILM — KPM's real footage ============ */}
+      <FacilityFilm />
 
       {/* ============ THE METHOD — type poster with a sprinter crossing it ============ */}
       <section className="relative overflow-hidden border-b-2 border-ink">
@@ -86,6 +94,17 @@ export default function HomePage() {
       </section>
 
       <Ticker />
+
+      {/* ============ A SINGLE SENTENCE, ALONE ============ */}
+      <section aria-label="On acceleration" className="border-b-2 border-ink bg-paper">
+        <div className="mx-auto w-full max-w-6xl px-5 py-28 sm:px-8 lg:py-40">
+          <p className="display max-w-4xl text-3xl leading-[1.06] sm:text-5xl lg:text-6xl">
+            Every single sport starts in a static position
+            <span className="text-sky"> or at a sub-maximal speed.</span>
+          </p>
+          <p className="folio mt-6 text-sky-deep">Pillar 01 — why acceleration comes first</p>
+        </div>
+      </section>
 
       {/* ============ TRAINING — ragged typographic index ============ */}
       <Section>
@@ -148,12 +167,22 @@ export default function HomePage() {
                 {site.email}
               </a>
             </div>
+            <p className="mt-6 border-t border-ink/25 pt-4 text-xs text-mist">
+              Online athletes: see{" "}
+              <Link href="/training#online" className="text-sky-deep underline underline-offset-2">
+                remote training & the program library
+              </Link>
+              .
+            </p>
           </aside>
         </div>
       </Section>
 
-      {/* ============ FACILITY — full-bleed photo ============ */}
-      <section className="relative border-y-2 border-ink">
+      {/* ============ VINCE PAPALE — feature spread ============ */}
+      <VincePapale />
+
+      {/* ============ FACILITY — full-bleed photo + summer schedule ============ */}
+      <section className="relative border-b-2 border-ink">
         <div className="relative aspect-[16/10] min-h-[420px] w-full overflow-hidden sm:aspect-[21/9]">
           <Image
             src={images.facilityNight}
@@ -176,17 +205,34 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="mx-auto grid w-full max-w-6xl gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center">
-          <p className="max-w-2xl leading-relaxed text-mist">
-            Sessions are capped at 30 athletes so every rep gets coached. Testing runs on
-            the Trazer system, and specific track work can be done offsite.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Cta href={site.mapsUrl} external variant="outline">
-              Get Directions
-            </Cta>
-            <Cta href="/signup">Sign Up</Cta>
+        <div className="mx-auto grid w-full max-w-6xl items-start gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[1fr_auto]">
+          <div>
+            <p className="max-w-2xl leading-relaxed text-mist">
+              Sessions are capped at 30 athletes so every rep gets coached. Testing runs
+              on the Trazer system, and specific track work can be done offsite.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-4">
+              <Cta href={site.mapsUrl} external variant="outline">
+                Get Directions
+              </Cta>
+              <Cta href="/signup">Sign Up</Cta>
+            </div>
           </div>
+          {/* The actual summer schedule, pinned like a flyer */}
+          <figure className="w-full max-w-[300px] rotate-[1.2deg] border-2 border-ink bg-white p-2 shadow-[8px_8px_0_rgba(20,19,9,0.9)]">
+            <div className="relative aspect-[4/5] w-full">
+              <Image
+                src={images.summerSchedule}
+                alt="KPM facility summer schedule 2026"
+                fill
+                sizes="300px"
+                className="object-cover object-top"
+              />
+            </div>
+            <figcaption className="pt-2 text-center font-cond text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-mist">
+              Summer schedule · on the wall now
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -215,27 +261,71 @@ export default function HomePage() {
       </Section>
 
       {/* ============ ATHLETE INDEX ============ */}
-      <section className="border-y-2 border-ink bg-panel">
+      <section id="athletes" className="border-y-2 border-ink bg-panel">
         <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
           <Reveal>
             <h2 className="display max-w-4xl text-5xl sm:text-7xl">
               In their words<span className="text-sky">.</span>
             </h2>
             <p className="mt-4 max-w-xl text-sm text-mist">
-              Pros, doctors, and 10,000+ athletes have run through this system. Tap one.
+              Pros, doctors, and 10,000+ athletes have run through this system. Tap one —
+              and read the{" "}
+              <a href="#vince-papale" className="text-sky-deep underline underline-offset-2">
+                Vince Papale feature
+              </a>{" "}
+              above.
             </p>
           </Reveal>
           <div className="mt-12">
             <TestimonialSpread />
           </div>
-          <div className="mt-10">
+        </div>
+      </section>
+
+      {/* ============ NAVY SPRINT FOOTBALL — dispatch ============ */}
+      <NavySprint />
+
+      {/* ============ ANTEPES — advertisement insert ============ */}
+      <AntepesInsert />
+
+      {/* ============ THE KIT — one object, alone ============ */}
+      <SpeedsterInsert />
+
+      {/* ============ THE ALUMNI ARCHIVE — teaser ============ */}
+      <section className="border-b-2 border-ink bg-panel">
+        <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8">
+          <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
+            <div>
+              <p className="kicker">Noteable alumni</p>
+              <h2 className="display mt-3 text-5xl sm:text-6xl">
+                The archive<span className="text-sky">.</span>
+              </h2>
+              <p className="mt-4 max-w-md text-sm text-mist">
+                Twenty-five frames from two decades of KPM athletes — dig through it.
+              </p>
+            </div>
             <Link
               href="/alumni"
               className="inline-flex items-center gap-2 font-cond text-sm font-semibold uppercase tracking-[0.16em] text-sky-deep hover:text-ink"
             >
-              See our notable alumni <ArrowIcon />
+              Open the archive <ArrowIcon />
             </Link>
           </div>
+          {/* a strip of the archive, cropped mid-frame */}
+          <Link href="/alumni" aria-label="Open the alumni archive" className="group mt-10 block">
+            <div className="flex h-44 gap-2 overflow-hidden sm:h-56">
+              {alumniGallery.slice(0, 8).map((img, i) => (
+                <div
+                  key={img.src}
+                  className={`relative shrink-0 border border-ink/40 grayscale transition duration-300 group-hover:grayscale-0 ${
+                    i % 3 === 0 ? "w-40 sm:w-52" : i % 3 === 1 ? "w-28 sm:w-36" : "w-20 sm:w-28"
+                  } ${i % 2 === 1 ? "mt-6" : ""}`}
+                >
+                  <Image src={img.src} alt="" fill sizes="200px" className="object-cover" />
+                </div>
+              ))}
+            </div>
+          </Link>
         </div>
       </section>
 

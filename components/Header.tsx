@@ -4,13 +4,16 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { images, links, nav, site } from "@/lib/site";
+import { images, links, nav, site, siteIndex } from "@/lib/site";
 
+/**
+ * Global chrome: a slim masthead bar plus the Index — a full-screen table
+ * of contents that reaches every chapter of the publication.
+ */
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  // Close the menu on Escape.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
@@ -75,63 +78,103 @@ export default function Header() {
           </Link>
         </nav>
 
+        {/* Index trigger — the publication's table of contents */}
         <button
           type="button"
           onClick={() => setOpen(!open)}
           aria-expanded={open}
-          aria-controls="mobile-menu"
-          className="flex h-11 w-11 items-center justify-center lg:hidden"
+          aria-controls="site-index"
+          className="flex h-11 items-center gap-2 px-2"
         >
-          <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+          <span className="hidden font-cond text-[0.8rem] font-semibold uppercase tracking-[0.22em] lg:inline">
+            {open ? "Close" : "Index"}
+          </span>
+          <span className="sr-only lg:hidden">{open ? "Close index" : "Open index"}</span>
           <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none">
             {open ? (
               <path d="M5 5l14 14M19 5 5 19" stroke="currentColor" strokeWidth="2" />
             ) : (
-              <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2" />
+              <path d="M3 6h18M3 12h12M3 18h18" stroke="currentColor" strokeWidth="2" />
             )}
           </svg>
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* THE INDEX — full-screen contents */}
       <div
-        id="mobile-menu"
-        className={`lg:hidden ${open ? "block" : "hidden"} h-[calc(100dvh-4rem)] overflow-y-auto border-t-2 border-ink bg-paper`}
+        id="site-index"
+        className={`${open ? "block" : "hidden"} h-[calc(100dvh-4rem)] overflow-y-auto border-t-2 border-ink bg-paper`}
       >
-        <nav aria-label="Mobile" className="flex flex-col px-5 py-6">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="display border-b border-ink/30 py-4 text-3xl hover:text-sky-deep"
-            >
-              {item.label}
-            </Link>
+        <nav
+          aria-label="Site index"
+          className="mx-auto grid w-full max-w-6xl gap-x-14 gap-y-10 px-5 py-10 sm:px-8 lg:grid-cols-[1.3fr_1fr_1fr] lg:py-14"
+        >
+          {siteIndex.map((section, s) => (
+            <div key={section.heading}>
+              <p className="kicker">{section.heading}</p>
+              <ul className={`mt-4 ${s === 0 ? "" : "border-t-2 border-ink"}`}>
+                {section.entries.map((entry, i) => {
+                  const external = "external" in entry && entry.external;
+                  const inner = (
+                    <>
+                      <span className="flex items-baseline justify-between gap-4">
+                        <span
+                          className={`display ${
+                            s === 0 ? "text-3xl sm:text-4xl" : "text-lg"
+                          } transition-colors group-hover:text-sky-deep`}
+                        >
+                          {entry.label}
+                        </span>
+                        <span className="folio shrink-0 text-sky-deep">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </span>
+                      <span className="mt-0.5 block text-xs text-mist">{entry.note}</span>
+                    </>
+                  );
+                  const cls = `group block border-b border-ink/25 py-3 ${
+                    s === 0 ? "py-4" : ""
+                  }`;
+                  return (
+                    <li key={entry.label}>
+                      {external ? (
+                        <a
+                          href={entry.href}
+                          target={entry.href.startsWith("http") ? "_blank" : undefined}
+                          rel={entry.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className={cls}
+                          onClick={() => setOpen(false)}
+                        >
+                          {inner}
+                        </a>
+                      ) : (
+                        <Link href={entry.href} className={cls} onClick={() => setOpen(false)}>
+                          {inner}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           ))}
-          <a
-            href={links.accountLogin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="display border-b border-ink/30 py-4 text-3xl text-mist hover:text-sky-deep"
-          >
-            Account Sign In
-          </a>
-          <Link
-            href="/signup"
-            onClick={() => setOpen(false)}
-            className="mt-6 inline-flex min-h-13 items-center justify-center bg-ink px-6 font-cond text-base font-semibold uppercase tracking-[0.16em] text-white"
-          >
-            Sign Up
-          </Link>
-          <div className="mt-8 text-sm text-mist">
-            <a href={site.phoneHref} className="block py-1 hover:text-sky-deep">
-              {site.phone}
-            </a>
-            <a href={`mailto:${site.email}`} className="block py-1 hover:text-sky-deep">
-              {site.email}
-            </a>
-            <p className="py-1">{site.address.label}</p>
+
+          <div className="lg:col-span-3">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-t-2 border-ink pt-5">
+              <p className="text-sm text-mist">
+                {site.address.label} ·{" "}
+                <a href={site.phoneHref} className="text-ink hover:text-sky-deep">
+                  {site.phone}
+                </a>
+              </p>
+              <Link
+                href="/signup"
+                onClick={() => setOpen(false)}
+                className="inline-flex min-h-12 items-center bg-ink px-6 font-cond text-sm font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-sky-deep"
+              >
+                Start Training
+              </Link>
+            </div>
           </div>
         </nav>
       </div>

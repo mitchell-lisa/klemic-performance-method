@@ -13,13 +13,16 @@ import { testimonials } from "@/lib/site";
 export default function TestimonialSpread() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const open = openIndex === null ? null : testimonials[openIndex];
+  // Vince Papale carries his own feature spread — the sheet holds the rest.
+  const sheet = testimonials.filter((t) => t.name !== "Vince Papale");
+
+  const open = openIndex === null ? null : sheet[openIndex];
   const anyOpen = openIndex !== null;
 
   return (
     <div>
-      <ul className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-6">
-        {testimonials.map((t, i) => {
+      <ul className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 lg:gap-x-6">
+        {sheet.map((t, i) => {
           const isOpen = openIndex === i;
           const receded = anyOpen && !isOpen;
           return (

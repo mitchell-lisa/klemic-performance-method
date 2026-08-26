@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { links, site } from "@/lib/site";
+import Image from "next/image";
+import { images, links, site } from "@/lib/site";
 import { Cta, Kicker, Section, SectionHeading } from "@/components/ui";
 import { SignupPathways } from "@/components/sections";
 
@@ -30,6 +31,42 @@ export default function SignupPage() {
 
       <Section className="pt-0">
         <SignupPathways />
+      </Section>
+
+      {/* This summer's actual schedule, pinned beside the program overview */}
+      <Section className="border-t border-ink/30">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+          <div>
+            <Kicker>On the wall now</Kicker>
+            <h2 className="display mt-3 text-4xl sm:text-5xl">
+              Summer schedule<span className="text-sky">.</span>
+            </h2>
+            <p className="mt-5 max-w-xl leading-relaxed text-mist">
+              Established in 2002 by former Kansas City Chiefs fastest man David Klemic,
+              KPM&rsquo;s training is powered by over 20 years of time-tested,
+              evidence-based training that creates physical, neurological, and technical
+              change in every athlete that completes a full 12-week training cycle.
+            </p>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-mist">
+              After testing, athletes select their weekly classes based on deficiencies
+              and current openings in the program.
+            </p>
+          </div>
+          <figure className="w-full max-w-[340px] rotate-[1deg] border-2 border-ink bg-white p-2 shadow-[10px_10px_0_rgba(20,19,9,0.9)] justify-self-center lg:justify-self-end">
+            <div className="relative aspect-[4/5] w-full">
+              <Image
+                src={images.summerSchedule}
+                alt="KPM facility summer schedule 2026"
+                fill
+                sizes="340px"
+                className="object-cover object-top"
+              />
+            </div>
+            <figcaption className="pt-2 text-center font-cond text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-mist">
+              Facility summer schedule
+            </figcaption>
+          </figure>
+        </div>
       </Section>
 
       <Section className="border-t border-ink/30">

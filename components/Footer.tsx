@@ -7,7 +7,16 @@ const programLinks = [
   { label: "Private Training", href: "/training#private" },
   { label: "Young Guns", href: "/training#young-guns" },
   { label: "Online Training", href: "/training#online" },
+  { label: "The Program Library", href: "/training#programs" },
   { label: "SJRS Program", href: "/training#sjrs" },
+];
+
+const featureLinks = [
+  { label: "Vince Papale", href: "/#vince-papale" },
+  { label: "Navy Sprint Football", href: "/#navy" },
+  { label: "Antepes Muscle Runners", href: "/#antepes" },
+  { label: "The Klemic Training Kit", href: "/#speedster" },
+  { label: "The Alumni Archive", href: "/alumni" },
 ];
 
 const signupLinks = [
@@ -19,7 +28,7 @@ const signupLinks = [
 export default function Footer() {
   return (
     <footer className="border-t-2 border-ink bg-ink text-paper">
-      <div className="mx-auto grid w-full max-w-6xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid w-full max-w-6xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-2 lg:grid-cols-5">
         <div>
           <div className="flex items-center gap-3">
             <Image
@@ -66,6 +75,19 @@ export default function Footer() {
           <p className="kicker text-sky">Programs</p>
           <ul className="mt-4 space-y-2.5 text-sm">
             {programLinks.map((item) => (
+              <li key={item.label}>
+                <Link href={item.href} className="text-white/80 hover:text-sky-deep">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="kicker text-sky">Features</p>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            {featureLinks.map((item) => (
               <li key={item.label}>
                 <Link href={item.href} className="text-white/80 hover:text-sky-deep">
                   {item.label}

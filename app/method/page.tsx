@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { gaitAnalysis, links, pillars } from "@/lib/site";
+import { gaitAnalysis, hurdlesInsert, images, links, pillars } from "@/lib/site";
 import { Cta, Kicker, Section, SectionHeading } from "@/components/ui";
 import { FinalCta, StatStrip } from "@/components/sections";
 
@@ -112,7 +112,17 @@ export default function MethodPage() {
             </div>
           </div>
 
-          <div className="grid gap-px self-start border border-ink/30 bg-ink/25">
+          <div className="self-start">
+            <figure className="relative mb-6 aspect-[16/10] w-full overflow-hidden border-2 border-ink">
+              <Image
+                src={images.gaitTesting}
+                alt="Gait analysis testing on the KPM facility floor"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
+            </figure>
+            <div className="grid gap-px border border-ink/30 bg-ink/25">
             {gaitAnalysis.dna.map((item) => (
               <div key={item.letter} className="flex gap-5 bg-panel p-6">
                 <span className="display text-4xl text-sky">{item.letter}</span>
@@ -122,11 +132,33 @@ export default function MethodPage() {
                 </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </Section>
 
       <StatStrip items={gaitAnalysis.stats} />
+
+      {/* ABOUT THE RACE — the hurdling-history insert carried over from the
+          original site: one odd, wonderful paragraph sitting alone. */}
+      <section aria-label="About the race — hurdles" className="border-t-2 border-ink bg-ink text-paper">
+        <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
+          <div className="max-w-3xl lg:ml-auto">
+            <p className="kicker !text-sky">{hurdlesInsert.kicker}</p>
+            <h2 className="display mt-3 text-5xl sm:text-6xl">
+              {hurdlesInsert.title}
+              <span className="text-grass">.</span>
+            </h2>
+            <p className="mt-6 font-cond text-base font-medium uppercase leading-[1.9] tracking-[0.06em] text-paper/85">
+              {hurdlesInsert.body}
+            </p>
+            <p className="folio mt-6 !text-paper/50">
+              Carried over from the KPM homepage — because it belongs to the place.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <FinalCta />
     </>
   );
