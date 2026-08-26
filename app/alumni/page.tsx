@@ -16,14 +16,13 @@ export default function AlumniPage() {
     <>
       <Section className="pb-10 sm:pb-14">
         <Kicker>Results</Kicker>
-        <h1 className="serifhead mt-4 max-w-4xl text-6xl sm:text-7xl lg:text-8xl">
-          Notable <span className="text-red">alumni</span>.
+        <h1 className="display mt-4 max-w-4xl text-5xl sm:text-7xl lg:text-8xl">
+          Notable <span className="text-sky">alumni</span>.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">
           More than 10,000 athletes have trained at KPM since 2002 — including 500+ NCAA
           athletes, 200+ Division I athletes, and 50+ professionals.
         </p>
-        <p className="annotation mt-4">The contact sheet — hover to develop ↓</p>
       </Section>
 
       <Section className="pt-0">

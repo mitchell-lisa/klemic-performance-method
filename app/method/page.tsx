@@ -16,17 +16,16 @@ export default function MethodPage() {
     <>
       <Section className="pb-10 sm:pb-14">
         <Kicker>The Method</Kicker>
-        <h1 className="serifhead mt-4 max-w-4xl text-6xl sm:text-7xl lg:text-8xl">
+        <h1 className="display mt-4 max-w-4xl text-5xl sm:text-7xl lg:text-8xl">
           Speed isn&rsquo;t a gift.
           <br />
-          It&rsquo;s a <span className="text-red">system</span>.
+          It&rsquo;s a <span className="text-sky">system</span>.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">
           Over the past 20+ years, KPM has fine-tuned a unique, evidence-based training
           system using proprietary resistances that yield results at a profound rate.
           Every athlete is tested, profiled, and trained against four pillars.
         </p>
-        <p className="annotation mt-4">An essay in four parts — read on ↓</p>
       </Section>
 
       {/* PILLARS */}
@@ -60,17 +59,17 @@ export default function MethodPage() {
                 </p>
               </div>
               <div>
-                <div className="cropmarks relative aspect-[4/3] overflow-hidden border border-ink/40">
+                <div className="relative aspect-[4/3] overflow-hidden border border-ink/40">
                   <Image
                     src={pillar.image}
                     alt={`KPM athlete training — ${pillar.name}`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="archival object-cover"
+                    className="object-cover"
                   />
                 </div>
                 <p className="folio mt-3">
-                  Fig. {pillar.number} — {pillar.name} work, Somers Point, NJ
+                  {pillar.name} work — Somers Point, NJ
                 </p>
               </div>
             </div>
@@ -92,7 +91,7 @@ export default function MethodPage() {
             <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-ink/85 sm:grid-cols-3">
               {gaitAnalysis.tests.map((test) => (
                 <li key={test} className="flex items-center gap-2.5">
-                  <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 bg-red" />
+                  <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 bg-sky" />
                   {test}
                 </li>
               ))}
@@ -116,7 +115,7 @@ export default function MethodPage() {
           <div className="grid gap-px self-start border border-ink/30 bg-ink/25">
             {gaitAnalysis.dna.map((item) => (
               <div key={item.letter} className="flex gap-5 bg-panel p-6">
-                <span className="display text-4xl text-red">{item.letter}</span>
+                <span className="display text-4xl text-sky">{item.letter}</span>
                 <div>
                   <h4 className="display text-lg">{item.name}</h4>
                   <p className="mt-1 text-sm text-mist">{item.description}</p>

@@ -29,7 +29,7 @@ export function StatStrip({
               i >= 2 ? "border-t border-ink/25 lg:border-t-0" : ""
             } ${i >= 1 ? "lg:border-l lg:border-ink/25" : ""}`}
           >
-            <span aria-hidden="true" className="absolute right-4 top-4 h-1.5 w-1.5 bg-red" />
+            <span aria-hidden="true" className="absolute right-4 top-4 h-1.5 w-1.5 bg-sky" />
             <dd className="display text-3xl sm:text-4xl lg:text-5xl">{s.value}</dd>
             <dt className="folio mt-2">{s.label}</dt>
           </div>
@@ -43,7 +43,7 @@ export function ProgramCard({ program }: { program: Program }) {
   return (
     <article className="flex flex-col border-2 border-ink bg-panel p-7 sm:p-8">
       <p className="kicker">{program.audience}</p>
-      <h3 className="serifhead mt-3 text-3xl sm:text-4xl">{program.name}</h3>
+      <h3 className="display mt-3 text-2xl sm:text-3xl">{program.name}</h3>
       <p className="mt-4 flex-1 text-sm leading-relaxed text-mist">{program.summary}</p>
       <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
         <Cta href={program.cta.href} external={program.cta.external} className="min-h-11 px-5 text-xs">
@@ -52,7 +52,7 @@ export function ProgramCard({ program }: { program: Program }) {
         {program.secondaryCta ? (
           <Link
             href={program.secondaryCta.href}
-            className="inline-flex items-center gap-2 font-cond text-xs font-semibold uppercase tracking-[0.16em] text-mist hover:text-red"
+            className="inline-flex items-center gap-2 font-cond text-xs font-semibold uppercase tracking-[0.16em] text-mist hover:text-sky-deep"
           >
             {program.secondaryCta.label} <ArrowIcon />
           </Link>
@@ -74,25 +74,25 @@ export function TestimonialCard({
       className={`border-t-2 border-ink bg-transparent pt-6 ${featured ? "lg:col-span-2" : ""}`}
     >
       <blockquote
-        className={`serifhead text-ink/90 ${featured ? "text-2xl sm:text-3xl" : "text-xl"}`}
+        className={`font-medium leading-snug text-ink/90 ${featured ? "text-xl sm:text-2xl" : "text-base"}`}
       >
-        <span aria-hidden="true" className="text-red">
+        <span aria-hidden="true" className="text-sky">
           &ldquo;
         </span>
         {t.quote}
-        <span aria-hidden="true" className="text-red">
+        <span aria-hidden="true" className="text-sky">
           &rdquo;
         </span>
       </blockquote>
       <figcaption className="mt-5 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <p className="display text-base text-red">{t.name}</p>
+        <p className="display text-base text-sky-deep">{t.name}</p>
         <p className="folio">{t.credential}</p>
       </figcaption>
     </figure>
   );
 }
 
-/** Coaches as archival collector cards. */
+/** Coaches as collector cards. */
 export function CoachesPreview() {
   return (
     <div className="grid gap-8 sm:grid-cols-3 sm:gap-6">
@@ -100,7 +100,7 @@ export function CoachesPreview() {
         <Link
           key={coach.name}
           href="/coaches"
-          className="group relative block border border-ink bg-white p-3 pb-0 shadow-[4px_4px_0_rgba(23,19,11,0.9)] transition-transform hover:-translate-y-1 hover:shadow-[6px_6px_0_rgba(194,42,28,0.9)]"
+          className="group relative block border border-ink bg-white p-3 pb-0 shadow-[5px_5px_0_rgba(20,19,9,0.9)] transition-transform hover:-translate-y-1 hover:shadow-[7px_7px_0_rgba(47,167,217,0.95)]"
         >
           <span className="spine absolute left-4 top-12 z-10 opacity-60">
             KPM Coaching Card · No. 0{i + 1}
@@ -111,12 +111,12 @@ export function CoachesPreview() {
               alt={`${coach.name}, ${coach.title}`}
               fill
               sizes="(max-width: 640px) 100vw, 33vw"
-              className="archival object-cover object-top transition duration-300 group-hover:scale-[1.03]"
+              className="object-cover object-top transition duration-300 group-hover:scale-[1.03]"
             />
           </span>
           <span className="flex items-baseline justify-between gap-2 py-3">
             <span className="display text-lg leading-none">{coach.name}</span>
-            <span className="folio text-right text-red">{coach.title}</span>
+            <span className="folio text-right text-sky-deep">{coach.title}</span>
           </span>
         </Link>
       ))}
@@ -161,12 +161,12 @@ export function PartnerBar() {
             );
           })}
         </ul>
-        <p className="annotation mt-8 text-center">
+        <p className="mt-8 text-center text-sm text-mist">
           <a
             href={antepes.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline decoration-red/60 underline-offset-4 hover:text-red"
+            className="underline decoration-sky/70 underline-offset-4 hover:text-sky-deep"
           >
             {antepes.label}
           </a>
@@ -181,8 +181,8 @@ export function SignupPathways({ compact = false }: { compact?: boolean }) {
     <div className="grid gap-8 lg:grid-cols-3 lg:gap-6">
       {signupPaths.map((path, i) => (
         <div key={path.name} className="rule-2 flex flex-col pt-5">
-          <p className="folio text-red">Path 0{i + 1} / 03</p>
-          <h3 className="serifhead mt-2 text-3xl">{path.name}</h3>
+          <p className="folio text-sky-deep">0{i + 1}</p>
+          <h3 className="display mt-2 text-2xl">{path.name}</h3>
           {!compact && (
             <p className="mt-3 text-sm leading-relaxed text-mist">{path.description}</p>
           )}
@@ -193,7 +193,7 @@ export function SignupPathways({ compact = false }: { compact?: boolean }) {
                 href={step.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex min-h-12 items-center justify-between gap-3 border border-ink bg-panel px-4 font-cond text-[0.72rem] font-semibold uppercase tracking-[0.14em] transition-colors hover:border-red hover:text-red"
+                className="group flex min-h-12 items-center justify-between gap-3 border border-ink bg-panel px-4 font-cond text-[0.72rem] font-semibold uppercase tracking-[0.14em] transition-colors hover:border-sky-deep hover:text-sky-deep"
               >
                 {step.label}
                 <ArrowIcon />
@@ -201,7 +201,7 @@ export function SignupPathways({ compact = false }: { compact?: boolean }) {
             ))}
           </div>
           {!compact && path.note ? (
-            <p className="annotation mt-4 text-sm">{path.note}</p>
+            <p className="mt-4 text-xs leading-relaxed text-mist">{path.note}</p>
           ) : null}
         </div>
       ))}
@@ -227,7 +227,7 @@ export function Ticker() {
             className="display mx-6 flex items-center gap-12 whitespace-nowrap text-xl text-paper sm:text-2xl"
           >
             {item}
-            <span className={`h-2 w-2 ${i % 2 ? "bg-red" : "bg-tan"}`} />
+            <span className={`h-2 w-2 ${i % 2 ? "bg-sky" : "bg-grass"}`} />
           </span>
         ))}
       </div>
@@ -235,10 +235,10 @@ export function Ticker() {
   );
 }
 
-/** Back cover — red plate, like the last page of the issue. */
+/** Closing plate — KPM blue. */
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden border-t-2 border-ink bg-red">
+    <section className="relative overflow-hidden border-t-2 border-ink bg-sky">
       <span
         aria-hidden="true"
         className="display-ghost-light pointer-events-none absolute -bottom-6 right-0 text-[clamp(6rem,20vw,16rem)]"
@@ -246,12 +246,14 @@ export function FinalCta() {
         Champ
       </span>
       <div className="relative mx-auto w-full max-w-6xl px-5 py-24 sm:px-8 sm:py-28">
-        <p className="folio text-paper/80">Back page · Ready when you are</p>
-        <h2 className="display mt-4 text-[clamp(2.8rem,9vw,7rem)] text-paper">
+        <p className="font-cond text-xs font-semibold uppercase tracking-[0.28em] text-ink/70">
+          Ready when you are
+        </p>
+        <h2 className="display mt-4 text-[clamp(2.8rem,9vw,7rem)] text-ink">
           Move like
-          <br />a champ<span className="text-ink">.</span>
+          <br />a champ<span className="text-paper">.</span>
         </h2>
-        <p className="serifhead mt-6 max-w-xl text-xl text-paper/90">
+        <p className="mt-6 max-w-xl font-medium text-ink/85">
           Start with a Full Panel Gait Analysis at our Somers Point facility, or call and
           we&rsquo;ll point you to the right program.
         </p>
@@ -264,7 +266,7 @@ export function FinalCta() {
           </Link>
           <a
             href={site.phoneHref}
-            className="inline-flex min-h-12 items-center justify-center gap-2 border-2 border-paper px-7 font-cond text-sm font-semibold uppercase tracking-[0.14em] text-paper transition-colors hover:bg-paper hover:text-red"
+            className="inline-flex min-h-12 items-center justify-center gap-2 border-2 border-ink px-7 font-cond text-sm font-semibold uppercase tracking-[0.14em] text-ink transition-colors hover:bg-ink hover:text-paper"
           >
             Call {site.phone}
           </a>

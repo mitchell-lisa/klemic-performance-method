@@ -37,7 +37,7 @@ export default function TestimonialSpread() {
                 <span
                   className={`halftone relative block aspect-[5/6] w-full overflow-hidden bg-white transition-shadow ${
                     isOpen
-                      ? "border border-ink shadow-[6px_6px_0_rgba(194,42,28,0.9)]"
+                      ? "border border-ink shadow-[6px_6px_0_rgba(47,167,217,0.95)]"
                       : "border border-ink/40"
                   }`}
                 >
@@ -54,17 +54,14 @@ export default function TestimonialSpread() {
                       }`}
                     />
                   ) : null}
-                  <span className="folio absolute left-2 top-2 bg-paper/90 px-1.5 py-0.5">
-                    Fig. 0{i + 1}
-                  </span>
                 </span>
                 {/* Contact-sheet caption */}
                 <span className="mt-3 block text-[0.8rem] leading-snug">
                   <span className="font-display uppercase tracking-wide">{t.name}</span>
                   <span className="text-mist"> — {t.credential}.</span>
                   <span
-                    className={`annotation mt-1 block text-[0.85rem] ${
-                      isOpen ? "text-red" : ""
+                    className={`mt-1 block font-cond text-[0.66rem] font-semibold uppercase tracking-[0.18em] ${
+                      isOpen ? "text-sky-deep" : "text-mist/80"
                     }`}
                   >
                     {isOpen ? "close ↑" : "read their words →"}
@@ -80,22 +77,22 @@ export default function TestimonialSpread() {
       <div id="testimonial-quote" role="region" aria-live="polite">
         {open ? (
           <figure className="mt-12 border-y-2 border-ink py-8 sm:py-12">
-            <blockquote className="serifhead max-w-4xl text-2xl leading-[1.12] sm:text-3xl lg:text-4xl">
-              <span aria-hidden="true" className="text-red">
+            <blockquote className="max-w-4xl text-xl font-medium leading-snug sm:text-2xl lg:text-[1.7rem]">
+              <span aria-hidden="true" className="text-sky">
                 &ldquo;
               </span>
               {open.quote}
-              <span aria-hidden="true" className="text-red">
+              <span aria-hidden="true" className="text-sky">
                 &rdquo;
               </span>
             </blockquote>
             <figcaption className="mt-6 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-              <span className="display text-xl text-red">{open.name}</span>
+              <span className="display text-xl text-sky-deep">{open.name}</span>
               <span className="folio">{open.credential}</span>
             </figcaption>
           </figure>
         ) : (
-          <p className="annotation mt-10">
+          <p className="mt-10 text-sm text-mist">
             ↑ Select an athlete from the sheet to read their words.
           </p>
         )}

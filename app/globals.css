@@ -2,27 +2,20 @@
 
 @theme inline {
   --font-display: var(--font-archivo);
-  --font-serif: var(--font-instrument);
   --font-cond: var(--font-oswald);
   --font-sans: var(--font-inter);
 
-  /* Archival print environment */
-  --color-paper: #f1ead7;
-  --color-paper-deep: #e8dfc4;
-  --color-panel: #f7f2e3;
-  --color-ink: #17130b;
-  --color-line: rgba(23, 19, 11, 0.25);
-  --color-mist: #635d4b;
+  /* Field — near-white warm ground, ink, KPM logo colors */
+  --color-paper: #f1f0ea;
+  --color-panel: #f8f7f1;
+  --color-ink: #141309;
+  --color-line: rgba(20, 19, 9, 0.3);
+  --color-mist: #565345;
 
-  /* KPM editorial accents */
-  --color-red: #c22a1c;
-  --color-red-deep: #8f1d12;
-  --color-tan: #c9b98e;
-  --color-gold-wash: #d3a94f;
-
-  /* Logo colors — reserved for moments where the KPM mark itself appears */
-  --color-sky: #35aadb;
+  --color-sky: #2fa7d9;
+  --color-sky-deep: #16719c;
   --color-grass: #a3b727;
+  --color-grass-deep: #7d8d1c;
 }
 
 html {
@@ -50,51 +43,21 @@ body {
   overflow-x: clip;
 }
 
-/* Paper grain over everything */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  pointer-events: none;
-  opacity: 0.5;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.055'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
 ::selection {
-  background: var(--color-red);
+  background: var(--color-sky);
   color: #fff;
 }
 
 /* ============ TYPE SYSTEM ============ */
 
-/* Heavy geometric masthead type (JOCK-style graphic uppercase) */
+/* Heavy geometric display — the site's voice */
 .display {
   font-family: var(--font-display), Impact, sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: -0.01em;
-  line-height: 0.92;
+  line-height: 0.9;
   text-wrap: balance;
-}
-
-/* Editorial serif headline — the magazine voice */
-.serifhead {
-  font-family: var(--font-serif), Georgia, serif;
-  font-weight: 400;
-  line-height: 0.98;
-  letter-spacing: -0.015em;
-  text-wrap: balance;
-}
-
-/* Small italic serif annotation — margin notes, arrows, asides */
-.annotation {
-  font-family: var(--font-serif), Georgia, serif;
-  font-style: italic;
-  font-size: 0.95rem;
-  line-height: 1.35;
-  color: var(--color-mist);
 }
 
 .kicker {
@@ -103,39 +66,48 @@ body::after {
   text-transform: uppercase;
   letter-spacing: 0.28em;
   font-size: 0.72rem;
-  color: var(--color-red);
+  color: var(--color-sky-deep);
 }
 
-/* Tiny magazine metadata: folios, issue numbers, figure labels */
+/* Tiny caption label */
 .folio {
   font-family: var(--font-cond), sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  font-size: 0.64rem;
   color: var(--color-mist);
 }
 
-/* Vertical spine label */
+/* Vertical rail label */
 .spine {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   font-family: var(--font-cond), sans-serif;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.3em;
-  font-size: 0.62rem;
+  letter-spacing: 0.32em;
+  font-size: 0.68rem;
   color: var(--color-ink);
 }
 
-/* Ghost outline type */
+/* Outline display type */
 .display-ghost {
   font-family: var(--font-display), Impact, sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(23, 19, 11, 0.2);
+  -webkit-text-stroke: 2px var(--color-sky);
+  user-select: none;
+}
+.display-ghost-ink {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(20, 19, 9, 0.35);
   user-select: none;
 }
 .display-ghost-light {
@@ -144,48 +116,20 @@ body::after {
   text-transform: uppercase;
   line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(241, 234, 215, 0.28);
+  -webkit-text-stroke: 1px rgba(241, 240, 234, 0.4);
   user-select: none;
 }
 
-/* ============ PRINT FURNITURE ============ */
-
-/* Crop marks on figures */
-.cropmarks {
-  position: relative;
+/* Hard offset shadow for rectangular photos (cutouts use drop-shadow) */
+.plate-sky {
+  box-shadow: 10px 10px 0 var(--color-sky);
 }
-.cropmarks::before,
-.cropmarks::after {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  pointer-events: none;
-}
-.cropmarks::before {
-  top: -7px;
-  left: -7px;
-  border-top: 1px solid var(--color-ink);
-  border-left: 1px solid var(--color-ink);
-}
-.cropmarks::after {
-  bottom: -7px;
-  right: -7px;
-  border-bottom: 1px solid var(--color-ink);
-  border-right: 1px solid var(--color-ink);
-}
-
-/* Heavy editorial rule */
-.rule-2 {
-  border-top: 2px solid var(--color-ink);
-}
-.rule-thin {
-  border-top: 1px solid var(--color-line);
+.plate-ink {
+  box-shadow: 8px 8px 0 var(--color-ink);
 }
 
 /* ============ MOTION ============ */
 
-/* Route-change page turn — applied by app/template.tsx */
 @keyframes page-turn {
   from {
     transform: perspective(1600px) rotateY(-9deg) translateX(2%);
@@ -201,7 +145,6 @@ body::after {
   transform-origin: left center;
 }
 
-/* Scroll reveal (activated by <Reveal>) */
 .reveal {
   opacity: 0;
   transform: translateY(26px);
@@ -220,7 +163,6 @@ body::after {
   }
 }
 
-/* Editorial ticker */
 @keyframes ticker {
   from {
     transform: translateX(0);
@@ -240,19 +182,8 @@ body::after {
   }
 }
 
-/* Halftone paper dots */
-.halftone {
-  background-image: radial-gradient(rgba(23, 19, 11, 0.09) 1px, transparent 1px);
-  background-size: 8px 8px;
-}
-
-/* Aged photo treatment */
-.archival {
-  filter: sepia(0.18) contrast(1.04) saturate(0.9);
-}
-
 /* Visible focus for keyboard users */
 :focus-visible {
-  outline: 2px solid var(--color-red);
+  outline: 2px solid var(--color-sky-deep);
   outline-offset: 3px;
 }

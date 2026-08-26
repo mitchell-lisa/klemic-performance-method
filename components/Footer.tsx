@@ -36,7 +36,7 @@ export default function Footer() {
               </span>
             </p>
           </div>
-          <p className="display mt-5 text-2xl text-red">Move Like a Champ</p>
+          <p className="display mt-5 text-2xl text-sky">Move Like a Champ</p>
           <p className="mt-4 text-sm leading-relaxed text-paper/60">
             Evidence-based speed &amp; athletic performance training.
             <br />
@@ -45,17 +45,17 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="kicker text-red">Explore</p>
+          <p className="kicker text-sky">Explore</p>
           <ul className="mt-4 space-y-2.5 text-sm">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-white/80 hover:text-red">
+                <Link href={item.href} className="text-white/80 hover:text-sky-deep">
                   {item.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/signup" className="text-white/80 hover:text-red">
+              <Link href="/signup" className="text-white/80 hover:text-sky-deep">
                 Sign Up
               </Link>
             </li>
@@ -63,11 +63,11 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="kicker text-red">Programs</p>
+          <p className="kicker text-sky">Programs</p>
           <ul className="mt-4 space-y-2.5 text-sm">
             {programLinks.map((item) => (
               <li key={item.label}>
-                <Link href={item.href} className="text-white/80 hover:text-red">
+                <Link href={item.href} className="text-white/80 hover:text-sky-deep">
                   {item.label}
                 </Link>
               </li>
@@ -76,25 +76,25 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="kicker text-red">Contact</p>
+          <p className="kicker text-sky">Contact</p>
           <ul className="mt-4 space-y-2.5 text-sm text-white/80">
             <li>
               <a
                 href={site.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-red"
+                className="hover:text-sky-deep"
               >
                 {site.address.label}
               </a>
             </li>
             <li>
-              <a href={site.phoneHref} className="hover:text-red">
+              <a href={site.phoneHref} className="hover:text-sky-deep">
                 {site.phone}
               </a>
             </li>
             <li>
-              <a href={`mailto:${site.email}`} className="hover:text-red">
+              <a href={`mailto:${site.email}`} className="hover:text-sky-deep">
                 {site.email}
               </a>
             </li>
@@ -105,7 +105,7 @@ export default function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-red"
+                    className="hover:text-sky-deep"
                   >
                     {item.label}
                   </a>
@@ -119,7 +119,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="KPM on Instagram"
-              className="text-paper/60 hover:text-red"
+              className="text-paper/60 hover:text-sky-deep"
             >
               <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.6" />
@@ -132,7 +132,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="KPM on YouTube"
-              className="text-paper/60 hover:text-red"
+              className="text-paper/60 hover:text-sky-deep"
             >
               <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <rect x="2.5" y="5.5" width="19" height="13" rx="3.5" stroke="currentColor" strokeWidth="1.6" />
