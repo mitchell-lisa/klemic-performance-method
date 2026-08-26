@@ -79,7 +79,7 @@ export default function AlumniPage() {
       </section>
 
       <section aria-label="2025 wrap-up" className="border-t-2 border-ink bg-panel">
-        <div className="mx-auto grid w-full max-w-6xl items-center gap-8 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_auto]">
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-8 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_320px]">
           <div className="order-2 lg:order-1">
             <p className="kicker">2025 wrap-up</p>
             <p className="display mt-3 max-w-xl text-4xl leading-[1.02] sm:text-5xl">
