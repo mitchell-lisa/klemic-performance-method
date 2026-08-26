@@ -69,10 +69,8 @@ export function TestimonialCard({
   t: Testimonial;
   featured?: boolean;
 }) {
-  return (
-    <figure
-      className={`border-t-2 border-ink bg-transparent pt-6 ${featured ? "lg:col-span-2" : ""}`}
-    >
+  const quote = (
+    <>
       <blockquote
         className={`font-medium leading-snug text-ink/90 ${featured ? "text-xl sm:text-2xl" : "text-base"}`}
       >
@@ -88,6 +86,30 @@ export function TestimonialCard({
         <p className="display text-base text-sky-deep">{t.name}</p>
         <p className="folio">{t.credential}</p>
       </figcaption>
+    </>
+  );
+
+  return (
+    <figure
+      className={`border-t-2 border-ink bg-transparent pt-6 ${featured ? "lg:col-span-2" : ""}`}
+    >
+      {t.image ? (
+        /* Cutout stands in its own plate, the way the contact sheet frames them */
+        <div className="flex gap-5 sm:gap-6">
+          <span className="plate-sky relative block aspect-[5/6] w-[34%] max-w-[180px] shrink-0 self-start overflow-hidden border-2 border-ink bg-white">
+            <Image
+              src={t.image}
+              alt={`${t.name} portrait`}
+              fill
+              sizes="(max-width: 640px) 34vw, 180px"
+              className="object-contain object-bottom"
+            />
+          </span>
+          <div className="min-w-0 flex-1">{quote}</div>
+        </div>
+      ) : (
+        quote
+      )}
     </figure>
   );
 }
