@@ -22,14 +22,6 @@ import SpeedsterInsert from "@/components/features/SpeedsterInsert";
 export default function HomePage() {
   return (
     <>
-      {/* The hero is the site's front door — global chrome stays out of it */}
-      <style
-        dangerouslySetInnerHTML={{
-          __html:
-            "@media (min-width:640px){header{display:none!important}main{padding-top:0!important}}",
-        }}
-      />
-
       <HomeHero />
 
       <StatStrip items={stats} />

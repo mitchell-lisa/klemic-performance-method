@@ -135,17 +135,8 @@ export default function HomeHero() {
           <Scribble style={{ left: u(168), top: u(-42), width: u(800), height: u(244) }} />
         </div>
 
-        {/* real logo, top-right */}
+        {/* The mark lives in the masthead now — the poster keeps only the line. */}
         <div className="absolute" style={{ right: u(40), top: u(30), zIndex: 6 }}>
-          <Image
-            src={images.logo}
-            alt="Klemic Performance Method"
-            width={168}
-            height={67}
-            priority
-            className="h-auto object-contain"
-            style={{ width: u(168) }}
-          />
           <p
             className="font-cond mt-2 text-right font-semibold uppercase"
             style={{
@@ -218,9 +209,15 @@ export default function HomeHero() {
             right: u(40),
             bottom: u(58),
             zIndex: 6,
-            fontSize: `max(20px, ${u(38)})`,
+            fontSize: `max(18px, ${u(24)})`,
             lineHeight: 1,
             color: INK,
+            // The entry sits over the figure, so it needs a plate to read —
+            // and it is sized to the column right of "a champ" so the plate
+            // never covers the headline.
+            background: "var(--color-paper)",
+            padding: `${u(13)} ${u(16)} ${u(11)}`,
+            boxShadow: `${u(7)} ${u(7)} 0 rgba(20,19,9,0.9)`,
           }}
         >
           Start training{" "}
@@ -294,21 +291,6 @@ export default function HomeHero() {
           KPM
         </h1>
 
-        {/* The real KPM mark, set in the clear band under the wordmark — it
-            used to sit on top of the blue KPM type, where it disappeared. */}
-        <div className="absolute" style={{ left: m(18), top: m(140), zIndex: 6 }}>
-          <Image
-            src={images.logo}
-            alt="Klemic Performance Method"
-            width={750}
-            height={300}
-            priority
-            sizes="160px"
-            className="h-auto object-contain"
-            style={{ width: m(124) }}
-          />
-        </div>
-
         <p
           className="font-display absolute uppercase"
           style={{ left: m(18), top: m(196), fontSize: m(64), lineHeight: 0.88, zIndex: 3 }}
@@ -331,6 +313,9 @@ export default function HomeHero() {
             height: m(330),
             zIndex: 4,
             filter: `drop-shadow(calc(var(--m) * -14) calc(var(--m) * 10) 0 rgba(47,167,217,0.85))`,
+            // Fade the crop instead of guillotining the figure mid-thigh.
+            maskImage: "linear-gradient(to bottom, #000 76%, transparent 99%)",
+            WebkitMaskImage: "linear-gradient(to bottom, #000 76%, transparent 99%)",
           }}
         >
           <Image

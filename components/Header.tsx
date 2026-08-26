@@ -31,23 +31,21 @@ export default function Header() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
         <Link
           href="/"
-          className="flex items-center gap-3"
+          className="flex items-center"
           aria-label="Klemic Performance Method — home"
         >
+          {/* The mark carries the masthead on its own — it was boxed into a
+              36px circle before, which forced a 48x19 source and read as a
+              smudge next to the wordmark it duplicated. */}
           <Image
             src={images.logo}
-            alt=""
-            width={36}
-            height={36}
-            className="h-9 w-9 rounded-full object-contain"
+            alt="Klemic Performance Method"
+            width={750}
+            height={300}
+            sizes="260px"
+            className="h-10 w-auto object-contain sm:h-12"
             priority
           />
-          <span className="display text-base leading-none tracking-[0.02em]">
-            Klemic
-            <span className="block font-cond text-[0.62rem] font-semibold tracking-[0.3em] text-mist">
-              Performance Method
-            </span>
-          </span>
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
