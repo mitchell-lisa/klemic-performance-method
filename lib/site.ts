@@ -412,6 +412,12 @@ export type Testimonial = {
   credential: string;
   /** Cutout portrait from the current KPM site, used in the testimonial spread. */
   image?: string;
+  /**
+   * Which page carries this voice. Each quote runs in exactly one place —
+   * the pro and clinical voices anchor the homepage, the alumni speak on
+   * the archive page.
+   */
+  placement: "home" | "alumni";
 };
 
 /**
@@ -423,6 +429,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Dave isn't just someone I know — he has played an integral part in our lives and my son's life. Vincent was coming off a severe injury, and we were coming all the way down from Cherry Hill to work with Dave. He got him ready — his speed, his strength and agility — and more than anything he was in his head about confidence.",
     name: "Vince Papale",
+    placement: "home",
     image: images.cutoutPapale,
     credential: "Former Philadelphia Eagle · The movie “Invincible”",
   },
@@ -430,6 +437,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Being at KPM for the past 10 years has been the most beneficial investment I have ever made in myself. At KPM you are not only becoming the best athlete you can become — you are also creating a better version of yourself day in and day out. I would not have any of the records I own or the scholarships I earned without Dave and Josh by my side.",
     name: "CJ Egrie",
+    placement: "alumni",
     image: images.cutoutEgrie,
     credential: "Holy Cross Baseball · Patriot League Player of the Year",
   },
@@ -437,6 +445,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Coaches Dave Klemic and Josh Holsopple have worked with me for years, and I can honestly say training at KPM has been one of the biggest attributes to my athletic success. It is truly the best place to send your young athlete to bring them to the highest level. The atmosphere is top notch, and the iron-sharpens-iron mentality pushes everyone to be their best.",
     name: "Allison Amadio",
+    placement: "alumni",
     image: images.cutoutAmadio,
     credential: "Rutgers Softball",
   },
@@ -444,6 +453,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "I can testify that EJ Underwood is in the top 5 fastest players I have trained — over 30 years and 1,700 players trained in the NFL, and that is a fact. Champ Bailey, Marcus Vick, Terence Newman, Ashley Lelie, David Klemic and EJ Underwood all ran under 4.3.",
     name: "Chip Smith",
+    placement: "home",
     image: images.cutoutSmith,
     credential: "“The Godfather of Sports Performance”",
   },
@@ -451,10 +461,21 @@ export const testimonials: Testimonial[] = [
     quote:
       "Klemic Performance Method is the only evidence-based sports performance training facility I have ever come across. When I have an athlete in the return-to-play protocol, I send them immediately to KPM as an insurance policy on my previous rehabilitation work. When an athlete completes their gait analysis and a full 12-week mesocycle, I am confident, as their doctor, that they are equipped to return back to play.",
     name: "Charlie Krome",
+    placement: "home",
     image: images.cutoutKrome,
     credential: "Non-Operative Sports Medicine · Shore Orthopedic",
   },
 ];
+
+/**
+ * Papale carries his own feature spread on the homepage, so the contact
+ * sheet holds the remaining homepage voices.
+ */
+export const homeTestimonials = testimonials.filter(
+  (t) => t.placement === "home" && t.name !== "Vince Papale",
+);
+
+export const alumniTestimonials = testimonials.filter((t) => t.placement === "alumni");
 
 export const gaitAnalysis = {
   name: "Full Panel Gait Analysis",
@@ -765,7 +786,7 @@ export const siteIndex = [
       { label: "Navy Sprint Football", href: "/#navy", note: "Consulting at the Naval Academy" },
       { label: "Antepes Muscle Runners", href: "/#antepes", note: "Code KLEMIC · 10% off" },
       { label: "The Klemic Training Kit", href: "/#speedster", note: "Built with Speedster" },
-      { label: "In their words", href: "/#athletes", note: "Papale · Egrie · Amadio · Smith · Krome" },
+      { label: "In their words", href: "/#athletes", note: "Papale · Smith · Krome" },
       { label: "Young Guns", href: "/training#young-guns", note: "Ages 5–11 · on film" },
       { label: "Online programs", href: "/training#online", note: "Off Season · Anti Atrophy · Custom" },
     ],

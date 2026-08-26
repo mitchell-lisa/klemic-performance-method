@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { alumniGallery, images, testimonials } from "@/lib/site";
+import { alumniGallery, alumniTestimonials, images } from "@/lib/site";
 import { Kicker, Section, SectionHeading } from "@/components/ui";
 import { FinalCta, TestimonialCard } from "@/components/sections";
 
@@ -105,10 +105,10 @@ export default function AlumniPage() {
       </section>
 
       <Section className="border-t-2 border-ink">
-        <SectionHeading kicker="In their words" title="What athletes, parents & pros say" />
+        <SectionHeading kicker="In their words" title="What KPM alumni say" />
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {testimonials.map((t, i) => (
-            <TestimonialCard key={t.name} t={t} featured={i === 0} />
+          {alumniTestimonials.map((t) => (
+            <TestimonialCard key={t.name} t={t} />
           ))}
         </div>
       </Section>

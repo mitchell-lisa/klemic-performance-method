@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { testimonials } from "@/lib/site";
+import { homeTestimonials } from "@/lib/site";
 
 /**
  * Editorial athlete index — a contact sheet of cutout portraits.
@@ -14,14 +14,23 @@ export default function TestimonialSpread() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   // Vince Papale carries his own feature spread — the sheet holds the rest.
-  const sheet = testimonials.filter((t) => t.name !== "Vince Papale");
+  const sheet = homeTestimonials;
 
   const open = openIndex === null ? null : sheet[openIndex];
   const anyOpen = openIndex !== null;
 
+  // The sheet is data-driven, so size the grid to what it actually holds —
+  // a four-column track with two frames in it reads as a failed load.
+  const columns =
+    sheet.length >= 4
+      ? "sm:grid-cols-4"
+      : sheet.length === 3
+        ? "sm:max-w-4xl sm:grid-cols-3"
+        : "sm:max-w-xl sm:grid-cols-2";
+
   return (
     <div>
-      <ul className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 lg:gap-x-6">
+      <ul className={`grid grid-cols-2 gap-x-4 gap-y-8 lg:gap-x-6 ${columns}`}>
         {sheet.map((t, i) => {
           const isOpen = openIndex === i;
           const receded = anyOpen && !isOpen;
@@ -96,7 +105,7 @@ export default function TestimonialSpread() {
           </figure>
         ) : (
           <p className="mt-10 text-sm text-mist">
-            ↑ Select an athlete from the sheet to read their words.
+            ↑ Select a name from the sheet to read their words.
           </p>
         )}
       </div>
