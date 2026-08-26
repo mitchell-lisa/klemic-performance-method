@@ -59,13 +59,20 @@ export default function MethodPage() {
                 </p>
               </div>
               <div>
-                <div className="relative aspect-[4/3] overflow-hidden border border-ink/40">
+                {/* The frame takes the photo's own shape — three of the four
+                    pillar images are portrait and were being cropped in half. */}
+                <div
+                  className={`overflow-hidden border border-ink/40 ${
+                    pillar.h > pillar.w ? "mx-auto max-w-[360px] lg:max-w-[420px]" : ""
+                  }`}
+                >
                   <Image
                     src={pillar.image}
                     alt={`KPM athlete training — ${pillar.name}`}
-                    fill
+                    width={pillar.w}
+                    height={pillar.h}
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
+                    className="h-auto w-full"
                   />
                 </div>
                 <p className="folio mt-3">
@@ -113,7 +120,7 @@ export default function MethodPage() {
           </div>
 
           <div className="self-start">
-            <figure className="relative mb-6 aspect-[16/10] w-full overflow-hidden border-2 border-ink">
+            <figure className="relative mb-6 aspect-square w-full overflow-hidden border-2 border-ink sm:aspect-[16/10]">
               <Image
                 src={images.gaitTesting}
                 alt="Gait analysis testing on the KPM facility floor"

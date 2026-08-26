@@ -294,15 +294,18 @@ export default function HomeHero() {
           KPM
         </h1>
 
-        <div className="absolute" style={{ right: m(12), top: m(16), zIndex: 6 }}>
+        {/* The real KPM mark, set in the clear band under the wordmark — it
+            used to sit on top of the blue KPM type, where it disappeared. */}
+        <div className="absolute" style={{ left: m(18), top: m(140), zIndex: 6 }}>
           <Image
             src={images.logo}
             alt="Klemic Performance Method"
-            width={168}
-            height={67}
+            width={750}
+            height={300}
             priority
+            sizes="160px"
             className="h-auto object-contain"
-            style={{ width: m(88) }}
+            style={{ width: m(124) }}
           />
         </div>
 

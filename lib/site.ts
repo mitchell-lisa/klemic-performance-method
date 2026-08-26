@@ -229,6 +229,10 @@ export const coachingStats = [
   { value: "50+", label: "Professional athletes" },
 ] as const;
 
+/**
+ * Intrinsic dimensions travel with each pillar photo: three of the four are
+ * portrait, and a fixed landscape frame was cropping 46% of them away.
+ */
 export const pillars = [
   {
     number: "01",
@@ -237,6 +241,8 @@ export const pillars = [
     description:
       "The positive change of rate of speed. Every single sport starts in a static position or at a sub-maximal speed — the athletes who separate are the ones who get to top speed first.",
     image: images.pillarAcceleration,
+    w: 2048,
+    h: 1366,
   },
   {
     number: "02",
@@ -245,6 +251,8 @@ export const pillars = [
     description:
       "Creating more force in a shorter period of time to displace the center of mass in the desired direction. This is where explosive first-step quickness is built.",
     image: images.pillarForce,
+    w: 4985,
+    h: 6979,
   },
   {
     number: "03",
@@ -253,6 +261,8 @@ export const pillars = [
     description:
       "The ability to direct your base of support out of frame in the most advantageous position to change direction or stop. Cutting, stopping, and re-accelerating all live here.",
     image: images.pillarCenterOfMass,
+    w: 3317,
+    h: 4644,
   },
   {
     number: "04",
@@ -261,6 +271,8 @@ export const pillars = [
     description:
       "Training at max velocity enhances the central nervous system's output, yielding downstream effects that create better results across all three previous pillars.",
     image: images.pillarMaxVelocity,
+    w: 5020,
+    h: 7028,
   },
 ] as const;
 

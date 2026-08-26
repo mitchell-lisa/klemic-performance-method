@@ -182,7 +182,7 @@ export default function TrainingPage() {
                 Young Guns Monthly
               </Cta>
             </div>
-            <div className="relative mt-12 aspect-[16/10] w-full max-w-xl overflow-hidden border-2 border-ink">
+            <div className="relative mt-12 aspect-square w-full max-w-xl overflow-hidden border-2 border-ink sm:aspect-[16/10]">
               <Image
                 src={images.youngGunsPhoto}
                 alt="A Young Guns athlete training at KPM"
