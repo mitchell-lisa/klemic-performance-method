@@ -14,7 +14,7 @@ export default function VincePapale() {
     <section
       id="vince-papale"
       aria-label="Vince Papale feature"
-      className="relative overflow-hidden border-y-2 border-ink bg-paper"
+      className="scroll-mt-20 relative overflow-hidden border-y-2 border-ink bg-paper"
     >
       {/* ---------- Desktop composition ---------- */}
       <div className="relative mx-auto hidden w-full max-w-[1400px] px-8 pb-24 pt-20 lg:block">

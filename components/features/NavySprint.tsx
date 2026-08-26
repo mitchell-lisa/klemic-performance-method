@@ -13,7 +13,7 @@ export default function NavySprint() {
     <section
       id="navy"
       aria-label="Navy Sprint Football feature"
-      className="relative overflow-hidden border-b-2 border-ink bg-ink text-paper"
+      className="scroll-mt-20 relative overflow-hidden border-b-2 border-ink bg-ink text-paper"
     >
       {/* ---------- Desktop ---------- */}
       <div className="relative mx-auto hidden w-full max-w-[1400px] px-8 pb-16 pt-20 lg:block">

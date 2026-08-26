@@ -163,6 +163,28 @@ body {
   }
 }
 
+/* Antepes ad — the shoe sequence hangs mid-stride */
+@keyframes shoe-drift {
+  0%,
+  100% {
+    transform: rotate(var(--shoe-rot, 0deg)) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(var(--shoe-rot, 0deg)) translate3d(0, -14px, 0);
+  }
+}
+.shoe-drift {
+  animation: shoe-drift 6.5s ease-in-out infinite;
+  animation-delay: var(--shoe-delay, 0s);
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .shoe-drift {
+    animation: none;
+    transform: rotate(var(--shoe-rot, 0deg));
+  }
+}
+
 @keyframes ticker {
   from {
     transform: translateX(0);

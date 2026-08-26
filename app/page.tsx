@@ -261,7 +261,7 @@ export default function HomePage() {
       </Section>
 
       {/* ============ ATHLETE INDEX ============ */}
-      <section id="athletes" className="border-y-2 border-ink bg-panel">
+      <section id="athletes" className="scroll-mt-20 border-y-2 border-ink bg-panel">
         <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
           <Reveal>
             <h2 className="display max-w-4xl text-5xl sm:text-7xl">

@@ -11,7 +11,7 @@ export default function SpeedsterInsert() {
     <section
       id="speedster"
       aria-label="The Klemic Training Kit by Speedster"
-      className="border-b-2 border-ink bg-paper"
+      className="scroll-mt-20 border-b-2 border-ink bg-paper"
     >
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-5 py-24 text-center sm:px-8 lg:py-32">
         <a

@@ -134,7 +134,10 @@ export const images = {
   navyCrest: wix("3f8515_bb33f7a025a9470b89b4dcbfb2291e50~mv2.webp"),
 
   antepesShoe: wix("f30e51_8031b8707fb541e191709e3bd84b4668~mv2.png"),
-  antepesLogo: wix("f30e51_5a6a3101c07d45939fd306c21f6cc47a~mv2.png"),
+  /** Rebuilt locally with real transparency — the Wix original is a palette
+   * PNG whose white background is only partly transparent, so it could not
+   * sit on a colored field without a plate behind it. */
+  antepesLogo: "/antepes-logo.png",
   summerSchedule: wix("3f8515_370467dc0dca4415b03bf7a7b852ff0f~mv2.png"),
 
   facilitySomersPoint: wix("f30e51_89bb77b64ee440b798b67996bb29a93a~mv2.jpg"),
