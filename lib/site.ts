@@ -79,6 +79,10 @@ export const images = {
   cutoutHunter: wix("f30e51_61451370cfb448a2b41c3a4b50695bc5~mv2.png"),
   cutoutPapale: wix("f30e51_d3e2fd7c51074781a3533607b973ec7a~mv2.png"),
   cutoutDave: wix("f30e51_268265c6b54f49579c736baab74a232b~mv2.png"),
+  cutoutEgrie: wix("f30e51_40191b466b9443488bebdee902bd2b02~mv2.png"),
+  cutoutAmadio: wix("f30e51_d7f157c8390a4eb0bc01f2ec7fff0293~mv2.png"),
+  cutoutSmith: wix("f30e51_884f17c0af724651bbba2e0f9b57f774~mv2.png"),
+  cutoutKrome: wix("f30e51_578bb16ebe7b49a782420749b399f46c~mv2.png"),
 
   coachKlemic: wix("f30e51_87eee01f1b434c67af59578c9a0566d6~mv2.jpg"),
   coachHolsopple: wix("f30e51_750633395ba34199a2c6e6a1c3a5a08a~mv2.jpg"),
@@ -244,6 +248,8 @@ export type Testimonial = {
   quote: string;
   name: string;
   credential: string;
+  /** Cutout portrait from the current KPM site, used in the testimonial spread. */
+  image?: string;
 };
 
 /**
@@ -255,30 +261,35 @@ export const testimonials: Testimonial[] = [
     quote:
       "Dave isn't just someone I know — he has played an integral part in our lives and my son's life. Vincent was coming off a severe injury, and we were coming all the way down from Cherry Hill to work with Dave. He got him ready — his speed, his strength and agility — and more than anything he was in his head about confidence.",
     name: "Vince Papale",
+    image: images.cutoutPapale,
     credential: "Former Philadelphia Eagle · The movie “Invincible”",
   },
   {
     quote:
       "Being at KPM for the past 10 years has been the most beneficial investment I have ever made in myself. At KPM you are not only becoming the best athlete you can become — you are also creating a better version of yourself day in and day out. I would not have any of the records I own or the scholarships I earned without Dave and Josh by my side.",
     name: "CJ Egrie",
+    image: images.cutoutEgrie,
     credential: "Patriot League Player of the Year",
   },
   {
     quote:
       "Coaches Dave Klemic and Josh Holsopple have worked with me for years, and I can honestly say training at KPM has been one of the biggest attributes to my athletic success. It is truly the best place to send your young athlete to bring them to the highest level. The atmosphere is top notch, and the iron-sharpens-iron mentality pushes everyone to be their best.",
     name: "Allison Amadio",
+    image: images.cutoutAmadio,
     credential: "Holy Cross Baseball · Rutgers Softball",
   },
   {
     quote:
       "I can testify that EJ Underwood is in the top 5 fastest players I have trained — over 30 years and 1,700 players trained in the NFL, and that is a fact. Champ Bailey, Marcus Vick, Terence Newman, Ashley Lelie, David Klemic and EJ Underwood all ran under 4.3.",
     name: "Chip Smith",
+    image: images.cutoutSmith,
     credential: "“The Godfather of Sports Performance”",
   },
   {
     quote:
       "Klemic Performance Method is the only evidence-based sports performance training facility I have ever come across. When I have an athlete in the return-to-play protocol, I send them immediately to KPM as an insurance policy on my previous rehabilitation work. When an athlete completes their gait analysis and a full 12-week mesocycle, I am confident, as their doctor, that they are equipped to return back to play.",
     name: "Charlie Krome",
+    image: images.cutoutKrome,
     credential: "Non-Operative Sports Medicine · Shore Orthopedic",
   },
 ];

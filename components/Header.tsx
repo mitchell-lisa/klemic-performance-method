@@ -24,7 +24,7 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-ink/90 backdrop-blur">
+    <header className="fixed inset-x-0 top-0 z-50 border-b-2 border-ink bg-paper/95 backdrop-blur">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
         <Link
           href="/"
@@ -39,9 +39,9 @@ export default function Header() {
             className="h-9 w-9 rounded-full object-contain"
             priority
           />
-          <span className="display text-base leading-none tracking-[0.08em]">
+          <span className="display text-base leading-none tracking-[0.02em]">
             Klemic
-            <span className="block text-[0.62rem] font-medium tracking-[0.3em] text-mist">
+            <span className="block font-cond text-[0.62rem] font-semibold tracking-[0.3em] text-mist">
               Performance Method
             </span>
           </span>
@@ -52,8 +52,8 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`font-display text-[0.8rem] font-medium uppercase tracking-[0.18em] transition-colors hover:text-gold ${
-                pathname === item.href ? "text-gold" : "text-white"
+              className={`font-cond text-[0.8rem] font-semibold uppercase tracking-[0.18em] transition-colors hover:text-sky-deep ${
+                pathname === item.href ? "text-sky-deep" : "text-ink"
               }`}
             >
               {item.label}
@@ -63,13 +63,13 @@ export default function Header() {
             href={links.accountLogin}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-display text-[0.8rem] font-medium uppercase tracking-[0.18em] text-mist transition-colors hover:text-gold"
+            className="font-cond text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-mist transition-colors hover:text-sky-deep"
           >
             Sign In
           </a>
           <Link
             href="/signup"
-            className="inline-flex min-h-10 items-center bg-gold px-5 font-display text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-ink transition-colors hover:bg-gold-bright"
+            className="inline-flex min-h-10 items-center bg-ink px-5 font-cond text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-paper transition-colors hover:bg-sky-deep hover:text-white"
           >
             Sign Up
           </Link>
@@ -96,7 +96,7 @@ export default function Header() {
       {/* Mobile menu */}
       <div
         id="mobile-menu"
-        className={`lg:hidden ${open ? "block" : "hidden"} h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-ink`}
+        className={`lg:hidden ${open ? "block" : "hidden"} h-[calc(100dvh-4rem)] overflow-y-auto border-t-2 border-ink bg-paper`}
       >
         <nav aria-label="Mobile" className="flex flex-col px-5 py-6">
           {nav.map((item) => (
@@ -104,7 +104,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="display border-b border-line py-4 text-3xl hover:text-gold"
+              className="display border-b border-ink/30 py-4 text-3xl hover:text-sky-deep"
             >
               {item.label}
             </Link>
@@ -113,22 +113,22 @@ export default function Header() {
             href={links.accountLogin}
             target="_blank"
             rel="noopener noreferrer"
-            className="display border-b border-line py-4 text-3xl text-mist hover:text-gold"
+            className="display border-b border-ink/30 py-4 text-3xl text-mist hover:text-sky-deep"
           >
             Account Sign In
           </a>
           <Link
             href="/signup"
             onClick={() => setOpen(false)}
-            className="mt-6 inline-flex min-h-13 items-center justify-center bg-gold px-6 font-display text-base font-semibold uppercase tracking-[0.16em] text-ink"
+            className="mt-6 inline-flex min-h-13 items-center justify-center bg-ink px-6 font-cond text-base font-semibold uppercase tracking-[0.16em] text-paper"
           >
             Sign Up
           </Link>
           <div className="mt-8 text-sm text-mist">
-            <a href={site.phoneHref} className="block py-1 hover:text-gold">
+            <a href={site.phoneHref} className="block py-1 hover:text-sky-deep">
               {site.phone}
             </a>
-            <a href={`mailto:${site.email}`} className="block py-1 hover:text-gold">
+            <a href={`mailto:${site.email}`} className="block py-1 hover:text-sky-deep">
               {site.email}
             </a>
             <p className="py-1">{site.address.label}</p>

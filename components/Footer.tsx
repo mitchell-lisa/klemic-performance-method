@@ -18,7 +18,7 @@ const signupLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-ink">
+    <footer className="border-t-2 border-ink bg-ink text-paper">
       <div className="mx-auto grid w-full max-w-6xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-3">
@@ -31,13 +31,13 @@ export default function Footer() {
             />
             <p className="display text-lg leading-none">
               Klemic
-              <span className="block text-[0.65rem] font-medium tracking-[0.3em] text-mist">
+              <span className="block text-[0.65rem] font-medium tracking-[0.3em] text-paper/60">
                 Performance Method
               </span>
             </p>
           </div>
-          <p className="display mt-5 text-2xl text-gold">Move Like a Champ</p>
-          <p className="mt-4 text-sm leading-relaxed text-mist">
+          <p className="display mt-5 text-2xl text-sky">Move Like a Champ</p>
+          <p className="mt-4 text-sm leading-relaxed text-paper/60">
             Evidence-based speed &amp; athletic performance training.
             <br />
             Est. {site.established} · Somers Point, NJ
@@ -45,17 +45,17 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="kicker">Explore</p>
+          <p className="kicker text-sky">Explore</p>
           <ul className="mt-4 space-y-2.5 text-sm">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-white/80 hover:text-gold">
+                <Link href={item.href} className="text-white/80 hover:text-sky">
                   {item.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/signup" className="text-white/80 hover:text-gold">
+              <Link href="/signup" className="text-white/80 hover:text-sky">
                 Sign Up
               </Link>
             </li>
@@ -63,11 +63,11 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="kicker">Programs</p>
+          <p className="kicker text-sky">Programs</p>
           <ul className="mt-4 space-y-2.5 text-sm">
             {programLinks.map((item) => (
               <li key={item.label}>
-                <Link href={item.href} className="text-white/80 hover:text-gold">
+                <Link href={item.href} className="text-white/80 hover:text-sky">
                   {item.label}
                 </Link>
               </li>
@@ -76,25 +76,25 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="kicker">Contact</p>
+          <p className="kicker text-sky">Contact</p>
           <ul className="mt-4 space-y-2.5 text-sm text-white/80">
             <li>
               <a
                 href={site.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-gold"
+                className="hover:text-sky"
               >
                 {site.address.label}
               </a>
             </li>
             <li>
-              <a href={site.phoneHref} className="hover:text-gold">
+              <a href={site.phoneHref} className="hover:text-sky">
                 {site.phone}
               </a>
             </li>
             <li>
-              <a href={`mailto:${site.email}`} className="hover:text-gold">
+              <a href={`mailto:${site.email}`} className="hover:text-sky">
                 {site.email}
               </a>
             </li>
@@ -105,7 +105,7 @@ export default function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gold"
+                    className="hover:text-sky"
                   >
                     {item.label}
                   </a>
@@ -119,7 +119,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="KPM on Instagram"
-              className="text-mist hover:text-gold"
+              className="text-paper/60 hover:text-sky"
             >
               <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.6" />
@@ -132,7 +132,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="KPM on YouTube"
-              className="text-mist hover:text-gold"
+              className="text-paper/60 hover:text-sky"
             >
               <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <rect x="2.5" y="5.5" width="19" height="13" rx="3.5" stroke="currentColor" strokeWidth="1.6" />
@@ -143,8 +143,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-line">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-5 py-6 text-xs text-mist sm:flex-row sm:items-center sm:justify-between sm:px-8">
+      <div className="border-t-2 border-ink">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-5 py-6 text-xs text-paper/60 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>

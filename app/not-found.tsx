@@ -6,7 +6,7 @@ export default function NotFound() {
       <div className="mx-auto w-full max-w-6xl py-24">
         <Kicker>404</Kicker>
         <h1 className="display mt-4 text-6xl sm:text-8xl">
-          Out of bounds<span className="text-gold">.</span>
+          Out of bounds<span className="text-sky">.</span>
         </h1>
         <p className="mt-6 max-w-md text-mist">
           That page doesn&rsquo;t exist. Get back in the game.

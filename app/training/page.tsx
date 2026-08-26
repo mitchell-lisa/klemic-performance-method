@@ -25,7 +25,7 @@ function ProgramSection({
   aside: React.ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-20 border-t border-line" aria-labelledby={`${id}-h`}>
+    <section id={id} className="scroll-mt-20 border-t border-ink/30" aria-labelledby={`${id}-h`}>
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.3fr_1fr]">
         <div>
           <Kicker>{kicker}</Kicker>
@@ -50,13 +50,13 @@ function AsideCard({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="border border-line bg-panel p-7">
+    <div className="border border-ink/30 bg-panel p-7">
       <p className="kicker">{heading}</p>
       {items ? (
-        <ul className="mt-4 space-y-2.5 text-sm text-white/85">
+        <ul className="mt-4 space-y-2.5 text-sm text-ink/85">
           {items.map((item) => (
             <li key={item} className="flex items-start gap-2.5">
-              <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-gold" />
+              <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-sky" />
               {item}
             </li>
           ))}
@@ -73,7 +73,7 @@ export default function TrainingPage() {
       <Section className="pb-10 sm:pb-14">
         <Kicker>Training</Kicker>
         <h1 className="display mt-4 max-w-4xl text-5xl sm:text-6xl lg:text-7xl">
-          Every path runs through the method<span className="text-gold">.</span>
+          Every path runs through the method<span className="text-sky">.</span>
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">
           Whether you train in the facility, one-on-one, online, or in the Young Guns
@@ -256,11 +256,11 @@ export default function TrainingPage() {
         <p>
           KPM&rsquo;s dedicated training program for SJRS student-athletes, with its own
           testing and registration. Questions about the program? Contact{" "}
-          <a href={`mailto:${site.email}`} className="text-gold hover:text-gold-bright">
+          <a href={`mailto:${site.email}`} className="text-sky-deep hover:text-ink">
             {site.email}
           </a>{" "}
           or call{" "}
-          <a href={site.phoneHref} className="text-gold hover:text-gold-bright">
+          <a href={site.phoneHref} className="text-sky-deep hover:text-ink">
             {site.phone}
           </a>
           .
@@ -268,7 +268,7 @@ export default function TrainingPage() {
       </ProgramSection>
 
       {/* FACILITY PHOTO BREAK */}
-      <div className="relative aspect-[21/9] min-h-72 w-full overflow-hidden border-t border-line">
+      <div className="relative aspect-[21/9] min-h-72 w-full overflow-hidden border-t border-ink/30">
         <Image
           src={images.facilityNight}
           alt="The Klemic Performance Method facility in Somers Point, NJ at night"

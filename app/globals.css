@@ -1,16 +1,22 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: var(--font-oswald);
+  --font-display: var(--font-archivo);
+  --font-cond: var(--font-oswald);
   --font-sans: var(--font-inter);
 
-  --color-ink: #0a0a0b;
-  --color-panel: #131316;
-  --color-panel-2: #1a1a1e;
-  --color-line: rgba(255, 255, 255, 0.12);
-  --color-mist: #a1a1aa;
-  --color-gold: #eab308;
-  --color-gold-bright: #facc15;
+  /* Magazine paper stock */
+  --color-paper: #f3eee1;
+  --color-panel: #faf7ee;
+  --color-ink: #17150e;
+  --color-line: rgba(23, 21, 14, 0.22);
+  --color-mist: #5f5b4e;
+
+  /* KPM logo colors */
+  --color-sky: #35aadb;
+  --color-sky-deep: #1d84b5;
+  --color-grass: #a3b727;
+  --color-grass-deep: #7d8d1c;
 }
 
 html {
@@ -31,46 +37,81 @@ html {
 }
 
 body {
-  background: var(--color-ink);
-  color: #fafafa;
+  background: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
 }
 
 ::selection {
-  background: var(--color-gold);
-  color: #0a0a0b;
+  background: var(--color-sky);
+  color: #fff;
 }
 
-/* Display type — bold, condensed, athletic */
+/* Display type — heavy geometric masthead (JOCK-style) */
 .display {
   font-family: var(--font-display), Impact, sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.01em;
-  line-height: 0.95;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
   text-wrap: balance;
 }
 
 .kicker {
-  font-family: var(--font-display), sans-serif;
-  font-weight: 500;
+  font-family: var(--font-cond), sans-serif;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.28em;
   font-size: 0.75rem;
-  color: var(--color-gold);
+  color: var(--color-sky-deep);
+}
+
+/* Magazine folio bar (page header) */
+.folio {
+  font-family: var(--font-cond), sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.65rem;
+  color: var(--color-mist);
 }
 
 /* Ghost outline type — text as imagery */
 .display-ghost {
   font-family: var(--font-display), Impact, sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
   line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
+  -webkit-text-stroke: 1px rgba(23, 21, 14, 0.18);
   user-select: none;
+}
+.display-ghost-light {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.22);
+  user-select: none;
+}
+
+/* Route-change page turn — applied by app/template.tsx */
+@keyframes page-turn {
+  from {
+    transform: perspective(1600px) rotateY(-9deg) translateX(2%);
+    opacity: 0.4;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.page-turn {
+  animation: page-turn 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  transform-origin: left center;
 }
 
 /* Scroll reveal (activated by <Reveal>) */
@@ -112,8 +153,14 @@ body {
   }
 }
 
+/* Halftone paper texture dots, used sparingly */
+.halftone {
+  background-image: radial-gradient(rgba(23, 21, 14, 0.08) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
 /* Visible focus for keyboard users */
 :focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-sky-deep);
   outline-offset: 3px;
 }

@@ -16,12 +16,12 @@ export default function SignupPage() {
       <Section className="pb-10 sm:pb-14">
         <Kicker>Sign Up</Kicker>
         <h1 className="display mt-4 max-w-4xl text-5xl sm:text-6xl lg:text-7xl">
-          Start training<span className="text-gold">.</span>
+          Start training<span className="text-sky">.</span>
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">
           Every KPM athlete starts with objective testing. Pick your path below — if
           you&rsquo;re not sure which applies, call{" "}
-          <a href={site.phoneHref} className="text-gold hover:text-gold-bright">
+          <a href={site.phoneHref} className="text-sky-deep hover:text-ink">
             {site.phone}
           </a>{" "}
           and we&rsquo;ll sort it out in two minutes.
@@ -32,13 +32,13 @@ export default function SignupPage() {
         <SignupPathways />
       </Section>
 
-      <Section className="border-t border-line">
+      <Section className="border-t border-ink/30">
         <SectionHeading
           kicker="Other ways to train"
           title="Private, online & account access"
         />
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <div className="flex flex-col border border-line bg-panel p-7">
+          <div className="flex flex-col border border-ink/30 bg-panel p-7">
             <h3 className="display text-2xl">Private Training</h3>
             <p className="mt-3 flex-1 text-sm leading-relaxed text-mist">
               One-on-one sessions scheduled directly with our coaching staff.
@@ -49,7 +49,7 @@ export default function SignupPage() {
               </Cta>
             </div>
           </div>
-          <div className="flex flex-col border border-line bg-panel p-7">
+          <div className="flex flex-col border border-ink/30 bg-panel p-7">
             <h3 className="display text-2xl">Online Training</h3>
             <p className="mt-3 flex-1 text-sm leading-relaxed text-mist">
               Custom monthly programming through the KPM app — $299/month.
@@ -60,7 +60,7 @@ export default function SignupPage() {
               </Cta>
             </div>
           </div>
-          <div className="flex flex-col border border-line bg-panel p-7">
+          <div className="flex flex-col border border-ink/30 bg-panel p-7">
             <h3 className="display text-2xl">Existing Account</h3>
             <p className="mt-3 flex-1 text-sm leading-relaxed text-mist">
               Already train with us? Sign in to your KPM athlete account.
@@ -79,14 +79,14 @@ export default function SignupPage() {
         </div>
       </Section>
 
-      <Section className="border-t border-line" id="contact">
+      <Section className="border-t border-ink/30" id="contact">
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <Kicker>Contact</Kicker>
             <h2 className="display mt-3 text-4xl sm:text-5xl">Questions? Ask a coach.</h2>
             <ul className="mt-8 space-y-4 text-lg">
               <li>
-                <a href={site.phoneHref} className="text-gold hover:text-gold-bright">
+                <a href={site.phoneHref} className="text-sky-deep hover:text-ink">
                   {site.phone}
                 </a>
                 <span className="block text-xs uppercase tracking-[0.16em] text-mist">
@@ -94,7 +94,7 @@ export default function SignupPage() {
                 </span>
               </li>
               <li>
-                <a href={site.privatePhoneHref} className="text-gold hover:text-gold-bright">
+                <a href={site.privatePhoneHref} className="text-sky-deep hover:text-ink">
                   {site.privatePhone}
                 </a>
                 <span className="block text-xs uppercase tracking-[0.16em] text-mist">
@@ -102,7 +102,7 @@ export default function SignupPage() {
                 </span>
               </li>
               <li>
-                <a href={`mailto:${site.email}`} className="text-gold hover:text-gold-bright">
+                <a href={`mailto:${site.email}`} className="text-sky-deep hover:text-ink">
                   {site.email}
                 </a>
                 <span className="block text-xs uppercase tracking-[0.16em] text-mist">
@@ -111,7 +111,7 @@ export default function SignupPage() {
               </li>
             </ul>
           </div>
-          <div className="self-center border border-line bg-panel p-8">
+          <div className="self-center border border-ink/30 bg-panel p-8">
             <p className="display text-2xl">The facility</p>
             <p className="mt-3 text-mist">{site.address.label}</p>
             <p className="mt-1 text-sm text-mist">

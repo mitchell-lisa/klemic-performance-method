@@ -10,13 +10,13 @@ type CtaProps = {
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const base =
-  "inline-flex items-center justify-center gap-2 font-display uppercase tracking-[0.12em] text-sm font-semibold transition-colors duration-200 min-h-12 px-7";
+  "inline-flex items-center justify-center gap-2 font-cond uppercase tracking-[0.14em] text-sm font-semibold transition-colors duration-200 min-h-12 px-7";
 
 const variants = {
-  solid: "bg-gold text-ink hover:bg-gold-bright",
+  solid: "bg-ink text-paper hover:bg-sky-deep hover:text-white",
   outline:
-    "border border-white/30 text-white hover:border-gold hover:text-gold",
-  ghost: "text-white hover:text-gold underline-offset-4 hover:underline px-0",
+    "border-2 border-ink text-ink hover:border-sky-deep hover:text-sky-deep",
+  ghost: "text-ink hover:text-sky-deep underline-offset-4 hover:underline px-0",
 };
 
 export function Cta({
