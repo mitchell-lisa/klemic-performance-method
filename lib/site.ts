@@ -497,15 +497,16 @@ export const gaitAnalysis = {
   ],
 } as const;
 
+/**
+ * The partner logo row, in the order it runs on the live site:
+ * ISA · Speedster · NFL Alumni · Antepes · Trazer.
+ */
 export const partners = [
-  { name: "Trazer", href: null, image: images.partnerTrazer },
+  { name: "International Sports Advisors", href: links.isaFootball, image: images.partnerIsa },
+  { name: "Speedster", href: links.speedsterKit, image: images.partnerSpeedster },
   { name: "NFL Alumni", href: null, image: images.partnerNflAlumni },
-  {
-    name: "Speedster",
-    href: links.speedsterKit,
-    image: images.partnerSpeedster,
-  },
-  { name: "ISA Football", href: links.isaFootball, image: images.partnerIsa },
+  { name: "Antepes", href: links.antepesMuscleRunner, image: images.antepesLogo },
+  { name: "Trazer", href: null, image: images.partnerTrazer },
 ] as const;
 
 export const antepes = {

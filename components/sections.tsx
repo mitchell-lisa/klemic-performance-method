@@ -129,7 +129,7 @@ export function PartnerBar() {
     <div className="border-t border-ink/25">
       <div className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-8">
         <p className="folio text-center">In partnership with</p>
-        <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {partners.map((p) => {
             const img = (
               <span className="flex h-24 items-center justify-center border border-ink/40 bg-white p-4">
