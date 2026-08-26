@@ -1,24 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {
   src: string;
   poster: string;
-  /** aspect ratio classes for the wrapper, e.g. "aspect-[9/16]" */
   className?: string;
-  /** ambient = autoplaying silent background film; feature = click-to-play */
   mode?: "ambient" | "feature";
   label?: string;
   posterSizes?: string;
 };
 
-/**
- * Video primitive for KPM's real footage (Wix media CDN).
- * The poster renders through next/image underneath the element so the frame
- * is always present even before the video can play; the video paints over it.
- */
 export default function KpmVideo({
   src,
   poster,
@@ -28,20 +21,45 @@ export default function KpmVideo({
   posterSizes = "(max-width: 1024px) 100vw, 50vw",
 }: Props) {
   const ref = useRef<HTMLVideoElement | null>(null);
-  const [playing, setPlaying] = useState(mode === "ambient");
-  const [started, setStarted] = useState(mode === "ambient");
+  const [started, setStarted] = useState(false);
+  const [muted, setMuted] = useState(true);
 
-  const toggle = () => {
+  // Autoplay when the video scrolls into view; pause when it leaves.
+  // Muted is required for autoplay to be allowed by browsers.
+  useEffect(() => {
     const v = ref.current;
     if (!v) return;
-    if (v.paused) {
-      void v.play();
-      setPlaying(true);
-      setStarted(true);
-    } else {
-      v.pause();
-      setPlaying(false);
-    }
+
+    const reduced =
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            v.play().catch(() => {
+              /* autoplay refused — poster stays, controls remain available */
+            });
+          } else if (!v.paused) {
+            v.pause();
+          }
+        }
+      },
+      { threshold: 0.25 },
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
+
+  const toggleSound = () => {
+    const v = ref.current;
+    if (!v) return;
+    const next = !v.muted;
+    v.muted = next;
+    setMuted(next);
+    if (!next) void v.play().catch(() => {});
   };
 
   return (
@@ -56,41 +74,49 @@ export default function KpmVideo({
       <video
         ref={ref}
         src={src}
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
           started ? "opacity-100" : "opacity-0"
         }`}
-        muted={mode === "ambient"}
-        loop={mode === "ambient"}
-        autoPlay={mode === "ambient"}
+        muted
+        loop
+        autoPlay
         playsInline
-        controls={mode === "feature" && started}
-        preload={mode === "ambient" ? "metadata" : "none"}
-        onPlay={() => {
-          setPlaying(true);
-          setStarted(true);
-        }}
-        onPause={() => setPlaying(false)}
+        preload="metadata"
+        onPlaying={() => setStarted(true)}
+        onLoadedData={() => setStarted(true)}
         aria-label={label}
       />
+
       {mode === "feature" ? (
         <button
           type="button"
-          onClick={toggle}
-          aria-label={playing ? `Pause: ${label ?? "video"}` : `Play: ${label ?? "video"}`}
-          className={`absolute inset-0 z-10 flex items-end justify-start p-4 text-left transition-opacity ${
-            playing ? "pointer-events-none opacity-0" : "opacity-100"
-          }`}
+          onClick={toggleSound}
+          aria-label={muted ? `Unmute: ${label ?? "video"}` : `Mute: ${label ?? "video"}`}
+          className="absolute bottom-4 left-4 z-10 inline-flex items-center gap-2.5 bg-ink/90 px-3.5 py-2.5 text-paper transition-colors hover:bg-ink"
         >
-          <span className="inline-flex items-center gap-3 bg-ink/90 px-4 py-3 text-paper">
-            <span
-              aria-hidden="true"
-              className="flex h-9 w-9 items-center justify-center bg-sky text-ink"
-            >
-              ▶
-            </span>
-            <span className="font-cond text-[0.7rem] font-semibold uppercase tracking-[0.18em]">
-              {label ?? "Play film"}
-            </span>
+          <span
+            aria-hidden="true"
+            className="flex h-7 w-7 items-center justify-center bg-sky text-ink"
+          >
+            {muted ? (
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                <path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor" />
+                <path d="m17 9 4 6M21 9l-4 6" stroke="currentColor" strokeWidth="2" />
+              </svg>
+            ) : (
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                <path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor" />
+                <path
+                  d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            )}
+          </span>
+          <span className="font-cond text-[0.7rem] font-semibold uppercase tracking-[0.18em]">
+            {muted ? "Sound on" : "Sound off"}
           </span>
         </button>
       ) : null}

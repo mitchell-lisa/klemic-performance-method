@@ -102,7 +102,7 @@ export const images = {
   cutoutTaboga: wix("f30e51_8b5ac8250a50441b9cbb3a6c0708c9e8~mv2.png"),
   cutoutHunter: wix("f30e51_61451370cfb448a2b41c3a4b50695bc5~mv2.png"),
   cutoutPapale: wix("f30e51_d3e2fd7c51074781a3533607b973ec7a~mv2.png"),
-  cutoutDave: wix("f30e51_268265c6b54f49579c736baab74a232b~mv2.png"),
+  cutoutDave: "/dave-klemic.png",
   cutoutEgrie: wix("f30e51_40191b466b9443488bebdee902bd2b02~mv2.png"),
   cutoutAmadio: wix("f30e51_d7f157c8390a4eb0bc01f2ec7fff0293~mv2.png"),
   cutoutSmith: wix("f30e51_884f17c0af724651bbba2e0f9b57f774~mv2.png"),
@@ -165,33 +165,49 @@ export const images = {
  * (25 images) plus the two portraits that appear only in the online-training
  * carousel. Order shuffled for the archive layout.
  */
-export const alumniGallery: { src: string; alt: string }[] = [
-  { src: wix("f30e51_2aecd1a39a45409fbe85d65ec3a27121~mv2.jpg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_ce2da53a822c483bb540248f6462ebce~mv2.jpg"), alt: "KPM alumni athlete — Damari Simeon" },
-  { src: wix("f30e51_081d9fac6e954a91ba25bad0963340d0~mv2.png"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_3aa5e0375d194a6386d6b238837fd419~mv2.jpg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_dc1c711eac8140318de0ff7440f93e50~mv2.jpg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_e5c54baad2de4edfa7b719cc0af4fc58~mv2.png"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_ee10c8ad96a54bca84f72c27a48bc7e1~mv2.jpg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_1bee1131ce6d4a6b9a585d4ecb653575~mv2.webp"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_d116bdcda91a4731ae55fbbb2ce2c3b5~mv2.jpg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_8ddcd77633cd401d9a2f54671572606e~mv2.webp"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_97eb1f65bf0f4a0d9dfc53b4e5f15539~mv2.jpg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_054502ac056e488f9e9279dbe632d1e5~mv2.jpg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_19dcd07be446405c9ef4fc8a96530970~mv2.jpg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_384c735e5e6845bfacee585250f62f0a~mv2.jpg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_79640a98130b44eb8e9b50c90485b095~mv2.jpg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_8847d13d60374313bf7256a1d64c03f5~mv2.webp"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_4a6b47bcc1f547dd8141909b884eff77~mv2.jpeg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_875ab65d01284a2b9fbf96e7ac524dda~mv2.png"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_67c92f041e7f477898d684a500be62d6~mv2.jpg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_a460524f824c496da398d534a3dab027~mv2.webp"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_ca2064328e5846c19a485b8e1a810a9c~mv2.png"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_66f812514a2a4665b1b886c00332d1d0~mv2.webp"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_e0d2460b4f3f4693a5081c2b83469844~mv2.jpg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_6af37709b4b54ab9b4c9463a39464e82~mv2.webp"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_f2ded00fd5b243bd8bf19541491cb111~mv2.jpeg"), alt: "KPM alumni athlete" },
-  { src: wix("f30e51_74f0af8da55047dda29d2b096294e552~mv2.jpeg"), alt: "KPM alumni athlete" },
+export type Alumnus = {
+  src: string;
+  name: string;
+  credential: string | null;
+  w: number;
+  h: number;
+};
+
+export const alumniGallery: Alumnus[] = [
+  { src: wix("f30e51_fd99a75f22c4431ab469879296d948b3~mv2.webp"), name: "Stephan Ordille", credential: "Princeton FB", w: 533, h: 300 },
+  { src: wix("f30e51_1a6a7bb6432a4dcf896adc51c36244d0~mv2.jpg"), name: "Logan Perez", credential: "UNH Football", w: 1578, h: 1314 },
+  { src: wix("f30e51_2aecd1a39a45409fbe85d65ec3a27121~mv2.jpg"), name: "Dennis Sidenberg", credential: "Stanley Cup Champion", w: 2940, h: 3230 },
+  { src: wix("f30e51_ce2da53a822c483bb540248f6462ebce~mv2.jpg"), name: "Damari Simeon", credential: "Ohio State Football", w: 1638, h: 2048 },
+  { src: wix("f30e51_081d9fac6e954a91ba25bad0963340d0~mv2.png"), name: "Destin Lasco", credential: "National Champion", w: 968, h: 1206 },
+  { src: wix("f30e51_3aa5e0375d194a6386d6b238837fd419~mv2.jpg"), name: "James Bradberry", credential: "NFL DB", w: 1707, h: 2560 },
+  { src: wix("f30e51_dc1c711eac8140318de0ff7440f93e50~mv2.jpg"), name: "Yannic Sidenberg", credential: "Silver Medalist Olympian", w: 400, h: 400 },
+  { src: wix("f30e51_e5c54baad2de4edfa7b719cc0af4fc58~mv2.png"), name: "Kylie Watson", credential: "Mcdonalds All American Villanova Basketball", w: 574, h: 920 },
+  { src: wix("f30e51_ee10c8ad96a54bca84f72c27a48bc7e1~mv2.jpg"), name: "Cayden Primeau", credential: "NHL Goalie", w: 500, h: 625 },
+  { src: wix("f30e51_1bee1131ce6d4a6b9a585d4ecb653575~mv2.webp"), name: "Bo Melton", credential: "NFL", w: 768, h: 768 },
+  { src: wix("f30e51_d116bdcda91a4731ae55fbbb2ce2c3b5~mv2.jpg"), name: "Nick Williams", credential: "NFL", w: 2802, h: 3986 },
+  { src: wix("f30e51_8ddcd77633cd401d9a2f54671572606e~mv2.webp"), name: "Austin Johnson", credential: "NFL", w: 1440, h: 810 },
+  { src: wix("f30e51_19dcd07be446405c9ef4fc8a96530970~mv2.jpg"), name: "Allison Amadio", credential: null, w: 960, h: 1200 },
+  { src: wix("f30e51_384c735e5e6845bfacee585250f62f0a~mv2.jpg"), name: "Jack Crawford", credential: "NFL", w: 1200, h: 675 },
+  { src: wix("f30e51_79640a98130b44eb8e9b50c90485b095~mv2.jpg"), name: "Myron Rolle", credential: "NFL", w: 1091, h: 1200 },
+  { src: wix("f30e51_8847d13d60374313bf7256a1d64c03f5~mv2.webp"), name: "Max Melton", credential: "NFL", w: 660, h: 371 },
+  { src: wix("f30e51_4a6b47bcc1f547dd8141909b884eff77~mv2.jpeg"), name: "Kenny Randall", credential: "NFL/USFL", w: 275, h: 183 },
+  { src: wix("f30e51_875ab65d01284a2b9fbf96e7ac524dda~mv2.png"), name: "Brad Jameson", credential: "Bucknell FB Captain", w: 960, h: 1206 },
+  { src: wix("f30e51_67c92f041e7f477898d684a500be62d6~mv2.jpg"), name: "Justin Williams", credential: "NFL", w: 3634, h: 3092 },
+  { src: wix("f30e51_a460524f824c496da398d534a3dab027~mv2.webp"), name: "Ava Tenaglia", credential: "Lasalle Soccor", w: 1200, h: 1799 },
+  { src: wix("f30e51_ca2064328e5846c19a485b8e1a810a9c~mv2.png"), name: "Kasey Bertones", credential: "Marist Basketball", w: 638, h: 844 },
+  { src: wix("f30e51_66f812514a2a4665b1b886c00332d1d0~mv2.webp"), name: "Hunter Watson", credential: "Monmouth Football", w: 600, h: 800 },
+  { src: wix("f30e51_f2bcbc953938488ea7353ea066d9b7d0~mv2.png"), name: "C.J Egrie", credential: "Patriot League MVP Holy Cross", w: 1080, h: 1350 },
+  { src: wix("f30e51_e0d2460b4f3f4693a5081c2b83469844~mv2.jpg"), name: "David Dudeck", credential: "Boston College FB", w: 427, h: 612 },
+  { src: wix("f30e51_6af37709b4b54ab9b4c9463a39464e82~mv2.webp"), name: "D'Hani Cobbs", credential: "Villanova FB", w: 1333, h: 2000 },
+  { src: wix("f30e51_f2ded00fd5b243bd8bf19541491cb111~mv2.jpeg"), name: "John Rochford", credential: "Miami Football", w: 223, h: 226 },
+  { src: wix("f30e51_74f0af8da55047dda29d2b096294e552~mv2.jpeg"), name: "Hakeem Valles", credential: "NFL", w: 1280, h: 720 },
+  { src: wix("f30e51_e95b22635f71401b87f86aef9b313e2e~mv2.webp"), name: "Trey Miler", credential: "Monmouth Football", w: 600, h: 800 },
+  { src: wix("f30e51_f59518a584cd4d2bacd14cf69f9bab37~mv2.webp"), name: "Ugo Nwotite", credential: "Villanova FB", w: 1333, h: 2000 },
+  { src: wix("f30e51_054502ac056e488f9e9279dbe632d1e5~mv2.jpg"), name: "Jason Thompson", credential: "NBA", w: 1522, h: 2048 },
+  { src: wix("f30e51_97eb1f65bf0f4a0d9dfc53b4e5f15539~mv2.jpg"), name: "Alexandria Cotter", credential: "Indiana State Swimming", w: 1080, h: 1350 },
+  { src: wix("f30e51_3ec4f0eadf444ca18bb11940ad11faa9~mv2.webp"), name: "Dan Russo", credential: "UPenn FB", w: 300, h: 400 },
+  { src: wix("f30e51_93e4aac1bb0e48728bce72fd0adc048b~mv2.webp"), name: "Tyler Stockton", credential: "Notre Dame FB", w: 1200, h: 675 },
+  { src: wix("f30e51_011b945f66c64806b9b1049be1e8d138~mv2.png"), name: "Sophia Curtis", credential: "Clemson Track", w: 624, h: 832 },
 ];
 
 /** Headline stats — all published on the current KPM site. */
@@ -717,6 +733,7 @@ export const signupPaths = [
 export const nav = [
   { label: "Training", href: "/training" },
   { label: "The Method", href: "/method" },
+  { label: "SJRS", href: "/training#sjrs" },
   { label: "Coaches", href: "/coaches" },
   { label: "Alumni", href: "/alumni" },
 ] as const;
@@ -733,7 +750,7 @@ export const siteIndex = [
       { label: "The Method", href: "/method", note: "Four pillars · gait analysis · D.N.A." },
       { label: "Training", href: "/training", note: "Facility · private · online · programs" },
       { label: "Coaches", href: "/coaches", note: "Dave · Josh · Cruz · private staff" },
-      { label: "Alumni", href: "/alumni", note: "The archive — 25+ athletes" },
+      { label: "Alumni", href: "/alumni", note: "NFL · NHL · Olympic · NCAA" },
       { label: "Sign Up", href: "/signup", note: "New · veteran · Young Guns" },
     ],
   },

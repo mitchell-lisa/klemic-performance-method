@@ -301,7 +301,7 @@ export default function HomePage() {
                 The archive<span className="text-sky">.</span>
               </h2>
               <p className="mt-4 max-w-md text-sm text-mist">
-                Twenty-five frames from two decades of KPM athletes — dig through it.
+                NFL, NHL, Olympic and NCAA athletes — named, with where they went.
               </p>
             </div>
             <Link
